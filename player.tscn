@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bl18nsv1qh53j"]
+
+[ext_resource type="Script" uid="uid://eb8yvteaq7o4" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://cc40mtxn776ph" path="res://rogue_hooded.tscn" id="2_onrkg"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_noarx"]
+radius = 0.59228516
+height = 2.2462463
+
+[node name="Player" type="CharacterBody3D" unique_id=289750881 groups=["player"]]
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=339905195]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2163239, 0)
+shape = SubResource("CapsuleShape3D_noarx")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=562113964]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.4)
+cull_mask = 1048573
+
+[node name="Rogue_Hooded" parent="." unique_id=22367285 instance=ExtResource("2_onrkg")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

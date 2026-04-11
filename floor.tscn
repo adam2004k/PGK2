@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://vhbxmgaohtlw"]
+
+[ext_resource type="PackedScene" uid="uid://s66uey7h63ny" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_large.gltf" id="1_cgngl"]
+[ext_resource type="PackedScene" uid="uid://dc74xvcim4gbf" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/floor_tile_large_rocks.gltf" id="2_wd3ws"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cgngl"]
+size = Vector3(12, 0.1, 12)
+
+[node name="Floor" type="StaticBody3D" unique_id=277236610]
+
+[node name="floor_tile_large9" parent="." unique_id=128657714 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4)
+
+[node name="floor_tile_large8" parent="." unique_id=1545788057 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="floor_tile_large2" parent="." unique_id=326488019 instance=ExtResource("1_cgngl")]
+
+[node name="floor_tile_large_rocks2" parent="." unique_id=672063154 instance=ExtResource("2_wd3ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="floor_tile_large3" parent="." unique_id=706594201 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="floor_tile_large4" parent="." unique_id=592058765 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, -4)
+
+[node name="floor_tile_large5" parent="." unique_id=977704937 instance=ExtResource("1_cgngl")]
+
+[node name="floor_tile_large6" parent="." unique_id=1757727768 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="floor_tile_large7" parent="." unique_id=1944765715 instance=ExtResource("1_cgngl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+
+[node name="floor_tile_large_rocks3" parent="." unique_id=1079239578 instance=ExtResource("2_wd3ws")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -4)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=233732331]
+shape = SubResource("BoxShape3D_cgngl")

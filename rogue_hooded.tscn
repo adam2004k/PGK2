@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cc40mtxn776ph"]
+
+[ext_resource type="PackedScene" uid="uid://b660gb7uc3hca" path="res://assets/character/Rogue_Hooded.glb" id="1_6jpcf"]
+[ext_resource type="Animation" uid="uid://cogo3iub31rw4" path="res://assets/character/Animations/Animations/Melee_2H_Idle.res" id="2_3oq2l"]
+[ext_resource type="Animation" uid="uid://dbye1gl5spot4" path="res://assets/character/Animations/Animations/Jump_Idle.res" id="2_p80vd"]
+[ext_resource type="Animation" uid="uid://dqx83iw3hchnd" path="res://assets/character/Animations/Animations/Jump_Land.res" id="3_3xoab"]
+[ext_resource type="Animation" uid="uid://kk3djpdng2hv" path="res://assets/character/Animations/Animations/Running_Strafe_Left.res" id="3_88twx"]
+[ext_resource type="Animation" uid="uid://kwtb52a6pln0" path="res://assets/character/Animations/Animations/Running_Strafe_Right.res" id="4_gppqb"]
+[ext_resource type="Animation" uid="uid://dgoe8nd6u4krw" path="res://assets/character/Animations/Animations/Jump_Start.res" id="4_iiwlf"]
+[ext_resource type="Animation" uid="uid://i6764t60a4vt" path="res://assets/character/Animations/Animations/Walking_A.res" id="5_rby2i"]
+[ext_resource type="Animation" uid="uid://derot36gn00yy" path="res://assets/character/Animations/Animations/Walking_Backwards.res" id="6_p80vd"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m2c5p"]
+_data = {
+&"Jump_Idle": ExtResource("2_p80vd"),
+&"Jump_Land": ExtResource("3_3xoab"),
+&"Jump_Start": ExtResource("4_iiwlf"),
+&"Melee_2H_Idle": ExtResource("2_3oq2l"),
+&"Running_Strafe_Left": ExtResource("3_88twx"),
+&"Running_Strafe_Right": ExtResource("4_gppqb"),
+&"Walking_A": ExtResource("5_rby2i"),
+&"Walking_Backwards": ExtResource("6_p80vd")
+}
+
+[node name="Rogue_Hooded" unique_id=22367285 instance=ExtResource("1_6jpcf")]
+
+[node name="Skeleton3D" parent="Rig_Medium" parent_id_path=PackedInt32Array(1257596940) index="0" unique_id=1869036890]
+bones/1/position = Vector3(0, 0.39206383, 0)
+bones/2/position = Vector3(0.17094505, 0.1135872, 1.7855621e-08)
+bones/2/rotation = Quaternion(0.99589103, -1.284072e-07, -1.6118024e-08, 0.09056075)
+bones/3/rotation = Quaternion(0.2913201, 6.604815e-08, -2.0231167e-07, 0.95662564)
+bones/4/rotation = Quaternion(-0.55491084, -3.325076e-08, 7.4074142e-09, 0.8319099)
+bones/5/rotation = Quaternion(3.4523627e-08, 0.92023516, -0.39136574, 7.002516e-08)
+bones/6/position = Vector3(-0.17094505, 0.1135872, 1.7855621e-08)
+bones/6/rotation = Quaternion(0.99589103, 1.346245e-07, -2.7306669e-08, 0.09056075)
+bones/7/rotation = Quaternion(0.2913201, -6.604816e-08, 2.0231164e-07, 0.95662564)
+bones/8/rotation = Quaternion(-0.55491084, 1.9804874e-07, -7.8918305e-08, 0.8319099)
+bones/9/rotation = Quaternion(-4.8799076e-09, 0.92023516, -0.39136574, 5.3284225e-08)
+bones/10/rotation = Quaternion(0, 7.1054274e-15, 0, 1)
+bones/11/rotation = Quaternion(0, -8.4703295e-22, 0, 1)
+bones/13/rotation = Quaternion(-0.5879524, -0.10844584, -0.6453981, 0.47540808)
+bones/14/rotation = Quaternion(2.1184832e-08, -5.03675e-08, -0.4973854, 0.86752975)
+bones/16/rotation = Quaternion(-0.31667742, -0.34757897, 0.22899799, 0.8523287)
+bones/17/rotation = Quaternion(-3.58774e-09, 6.9489703e-09, -0.7071068, 0.7071067)
+bones/18/rotation = Quaternion(-0.5802813, 0.1582846, 0.66605324, 0.44112664)
+bones/19/rotation = Quaternion(9.095459e-09, 4.8284473e-08, 0.42497087, 0.90520704)
+bones/21/rotation = Quaternion(-0.35023588, 0.29147267, -0.19676158, 0.8681379)
+bones/22/rotation = Quaternion(-9.535865e-10, -4.3147668e-09, 0.7071068, 0.7071067)
+
+[node name="RogueHooded_Head" parent="Rig_Medium/Skeleton3D" index="4" unique_id=695971019]
+layers = 2
+
+[node name="RogueHooded_Mask" parent="Rig_Medium/Skeleton3D" index="7" unique_id=348395710]
+layers = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1565810571]
+libraries/Player = SubResource("AnimationLibrary_m2c5p")

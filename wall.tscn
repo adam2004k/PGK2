@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cp5acoa6l8sff"]
+
+[ext_resource type="PackedScene" uid="uid://dfifljuaq23ay" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/gltf/wall.gltf" id="1_xxgf6"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y4f30"]
+size = Vector3(12, 4, 1)
+
+[node name="Wall" type="StaticBody3D" unique_id=1283208265]
+
+[node name="wall4" parent="." unique_id=503632307 instance=ExtResource("1_xxgf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 6)
+
+[node name="wall2" parent="." unique_id=401834276 instance=ExtResource("1_xxgf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 6)
+
+[node name="wall3" parent="." unique_id=509606367 instance=ExtResource("1_xxgf6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 6)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1640968486]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.982666, 1.9944458, 6)
+shape = SubResource("BoxShape3D_y4f30")
