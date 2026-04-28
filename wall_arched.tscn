@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c4vhxuacm26x1"]
+
+[ext_resource type="PackedScene" uid="uid://dag1gb8amnoxh" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_arched.fbx" id="1_ptiqv"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8ys1h"]
+size = Vector3(4.032715, 4.0095825, 1)
+
+[node name="wall_arched" unique_id=1632292980 instance=ExtResource("1_ptiqv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1839708016]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=928612005]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004638672, 1.9987488, 0)
+shape = SubResource("BoxShape3D_8ys1h")

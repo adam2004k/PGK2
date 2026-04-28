@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://ugkt35yap6tl"]
+
+[ext_resource type="PackedScene" uid="uid://bhavkfanjyt84" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_shelves.fbx" id="1_dwlyl"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_crucv"]
+size = Vector3(4.020996, 3.9994812, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k54nj"]
+size = Vector3(2.1015625, 2.3422852, 1.369873)
+
+[node name="wall_shelves" unique_id=304233032 instance=ExtResource("1_dwlyl")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=354833345]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, -1.4210855e-14, 0, 1.4210855e-14, 1.0000001, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1488438078]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014892636, 1.9992218, -3.3881318e-21)
+shape = SubResource("BoxShape3D_crucv")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=1119856511]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.031249996, 2.2055397, 0.18493652)
+shape = SubResource("BoxShape3D_k54nj")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dev78j2lohiee"]
+
+[ext_resource type="PackedScene" uid="uid://c2vw355l3e3h8" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_half.fbx" id="1_n6q1f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dkr1d"]
+size = Vector3(2.0379639, 4.041748, 1)
+
+[node name="wall_half" unique_id=1622975564 instance=ExtResource("1_n6q1f")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1155211979]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=793498785]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0003052, 1.9923096, 0)
+shape = SubResource("BoxShape3D_dkr1d")

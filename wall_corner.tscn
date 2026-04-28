@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://653n4ikkk5s8"]
+
+[ext_resource type="PackedScene" uid="uid://dt1pl4qyif5ry" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_corner.fbx" id="1_xwevd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cuko8"]
+size = Vector3(1, 4.000061, 2.5203857)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6ijf7"]
+size = Vector3(2.4956055, 4.003479, 1)
+
+[node name="wall_corner" unique_id=157124589 instance=ExtResource("1_xwevd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1632267305]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1251386274]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.001068, 0.756897)
+shape = SubResource("BoxShape3D_cuko8")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" index="1" unique_id=832934649]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.74780273, 2.0032654, 0)
+shape = SubResource("BoxShape3D_6ijf7")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c7qcj1j4r0kgp"]
+
+[ext_resource type="PackedScene" uid="uid://c25w7wfv1rbfa" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_gated.fbx" id="1_asqff"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_561tm"]
+size = Vector3(4.0280914, 4.0282593, 1)
+
+[node name="wall_gated" unique_id=1237431183 instance=ExtResource("1_asqff")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=2002432737]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=445725088]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.008125305, 2.011139, 0)
+shape = SubResource("BoxShape3D_561tm")

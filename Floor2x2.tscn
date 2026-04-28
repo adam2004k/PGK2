@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://5tvduyhwqq2f"]
+
+[ext_resource type="PackedScene" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx(unity)/floor_tile_large.fbx" id="1_cfhgx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78u67"]
+size = Vector3(8.013214, 0.05517578, 7.9486694)
+
+[node name="Floor3" type="StaticBody3D" unique_id=1232378008]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="floor_tile_large4" parent="." unique_id=1733034455 instance=ExtResource("1_cfhgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 11.903123)
+
+[node name="floor_tile_large3" parent="." unique_id=782463873 instance=ExtResource("1_cfhgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 11.903123)
+
+[node name="floor_tile_large2" parent="." unique_id=697909604 instance=ExtResource("1_cfhgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 7.903123)
+
+[node name="floor_tile_large" parent="." unique_id=692836211 instance=ExtResource("1_cfhgx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=389326042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
+shape = SubResource("BoxShape3D_78u67")

@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://c4xh6wmsu4o6g"]
+
+[ext_resource type="PackedScene" uid="uid://dt1pl4qyif5ry" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_corner.fbx" id="1_pit48"]
+[ext_resource type="PackedScene" uid="uid://6o0d5n4f57h2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall.fbx" id="2_yrguq"]
+[ext_resource type="PackedScene" uid="uid://bh2ptqyg5gttb" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_cracked.fbx" id="3_12t17"]
+[ext_resource type="PackedScene" uid="uid://cgcemk1devgxs" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx(unity)/floor_tile_large.fbx" id="4_wyxms"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78u67"]
+size = Vector3(8.013214, 0.05517578, 7.9486694)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nt2ub"]
+size = Vector3(8.528564, 4.0440063, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_n5ey3"]
+size = Vector3(0.9744873, 4.017578, 2.4783936)
+
+[node name="Tunnel T open" type="StaticBody3D" unique_id=839890942]
+
+[node name="wall_corner2" parent="." unique_id=157124589 instance=ExtResource("1_pit48")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, -1, 4)
+
+[node name="wall" parent="." unique_id=307366161 instance=ExtResource("2_yrguq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, 4)
+
+[node name="wall_corner" parent="." unique_id=455093148 instance=ExtResource("1_pit48")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, -1, -4)
+
+[node name="wall_cracked" parent="." unique_id=1629137034 instance=ExtResource("3_12t17")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -4)
+
+[node name="Floor3" type="StaticBody3D" parent="." unique_id=1117441811]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 0)
+
+[node name="floor_tile_large4" parent="Floor3" unique_id=1733034455 instance=ExtResource("4_wyxms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 11.903123)
+
+[node name="floor_tile_large3" parent="Floor3" unique_id=213097115 instance=ExtResource("4_wyxms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 11.903123)
+
+[node name="floor_tile_large2" parent="Floor3" unique_id=1816316654 instance=ExtResource("4_wyxms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 7.903123)
+
+[node name="floor_tile_large" parent="Floor3" unique_id=2082911929 instance=ExtResource("4_wyxms")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor3" unique_id=1164232687]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
+shape = SubResource("BoxShape3D_78u67")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1729500907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.76355, 1.0015564, 4)
+shape = SubResource("BoxShape3D_nt2ub")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="." unique_id=2080567603]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.76355, 1.0015564, -3.9777055)
+shape = SubResource("BoxShape3D_nt2ub")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="." unique_id=613184915]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.010563, 1.0081584, -4.7768574)
+shape = SubResource("BoxShape3D_n5ey3")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="." unique_id=1214418691]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.010563, 1.0081584, 4.7253304)
+shape = SubResource("BoxShape3D_n5ey3")

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0xx08lq2po1o"]
 
 [ext_resource type="Script" uid="uid://8ne26j0sqh5" path="res://canvas_layer.gd" id="1_27fn8"]
-[ext_resource type="Texture2D" uid="uid://7bg82sm873vo" path="res://assets/items/crosshair010.png" id="2_27fn8"]
+[ext_resource type="Texture2D" uid="uid://ckw4lt00r6a1r" path="res://assets/kenney_crosshair-pack/PNG/Black/crosshair010.png" id="2_nltto"]
 [ext_resource type="Script" uid="uid://drootnhm5qj5t" path="res://label.gd" id="3_ibotj"]
 
 [node name="UI" type="CanvasLayer" unique_id=178172470]
@@ -36,7 +36,7 @@ offset_right = 32.0
 offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_27fn8")
+texture = ExtResource("2_nltto")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="." unique_id=2108719986]

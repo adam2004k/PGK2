@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cnjs8je2fctxy"]
+
+[ext_resource type="PackedScene" uid="uid://dqdworfjrnykr" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_endcap.fbx" id="1_2wyhn"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_43puo"]
+size = Vector3(1.0151367, 4.0337524, 1)
+
+[node name="wall_endcap" unique_id=2144797267 instance=ExtResource("1_2wyhn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=1276791071]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=726799472]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5012207, 1.9969177, 0)
+shape = SubResource("BoxShape3D_43puo")

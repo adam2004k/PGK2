@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cyxgsnop4tmrx"]
+
+[ext_resource type="PackedScene" uid="uid://bh2ptqyg5gttb" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/wall_cracked.fbx" id="1_apm1c"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nkv0h"]
+size = Vector3(3.9868164, 4.02417, 1)
+
+[node name="Wall cracked" type="StaticBody3D" unique_id=955112431]
+
+[node name="wall_cracked" parent="." unique_id=1629137034 instance=ExtResource("1_apm1c")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=556662156]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0007324219, 1.991333, 0)
+shape = SubResource("BoxShape3D_nkv0h")
