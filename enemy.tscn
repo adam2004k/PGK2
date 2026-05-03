@@ -16,3 +16,5 @@ shape = SubResource("CapsuleShape3D_4gyqm")
 
 [node name="Barbarian" parent="." unique_id=560515975 instance=ExtResource("2_4gyqm")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=2074187284]

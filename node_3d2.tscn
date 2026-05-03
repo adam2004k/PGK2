@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://bl18nsv1qh53j" path="res://player.tscn" id="1_f3us2"]
 [ext_resource type="PackedScene" uid="uid://c0xx08lq2po1o" path="res://ui.tscn" id="3_4ivpw"]
-[ext_resource type="PackedScene" uid="uid://bomxg33rhsy3d" path="res://enemy.tscn" id="4_78u67"]
 [ext_resource type="PackedScene" uid="uid://onxjvqg6uc32" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="4_f3us2"]
 [ext_resource type="PackedScene" uid="uid://dmbhj6tow31c2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_small.fbx" id="5_l8ani"]
 [ext_resource type="PackedScene" uid="uid://dj8x8x6pnxik2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_small_corner.fbx" id="6_l8ani"]
@@ -37,6 +36,7 @@
 [ext_resource type="PackedScene" uid="uid://c7qcj1j4r0kgp" path="res://wall_gated.tscn" id="35_w08nd"]
 [ext_resource type="PackedScene" uid="uid://c4vhxuacm26x1" path="res://wall_arched.tscn" id="36_crikj"]
 [ext_resource type="PackedScene" uid="uid://di56010q100jf" path="res://room_medium.tscn" id="37_43kll"]
+[ext_resource type="Script" uid="uid://dosgtwb52g158" path="res://spawener.gd" id="37_ig2vp"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_jka67"]
 turbidity = 1.0
@@ -165,14 +165,17 @@ size = Vector3(1, 2.321167, 1.887207)
 [sub_resource type="BoxShape3D" id="BoxShape3D_dfnfx"]
 size = Vector3(9.464569, 4.593292, 1)
 
+[sub_resource type="NavigationMesh" id="NavigationMesh_ig2vp"]
+vertices = PackedVector3Array(37.846878, -0.48000002, -62.259186, 39.346878, -0.48000002, -62.259186, 39.096878, -0.48000002, -69.509186, 37.596878, -0.48000002, -61.759186, 29.596878, -0.48000002, -69.509186, 29.596878, -0.48000002, -62.009186, 51.846878, -0.48000002, -62.259186, 52.096878, -0.48000002, -69.509186, 53.596878, -0.48000002, -62.009186, 53.596878, -0.48000002, -60.009186, 60.596878, -0.48000002, -60.009186, 60.596878, -0.48000002, -69.509186, -85.40312, -0.48000002, -58.009186, -78.40312, -0.48000002, -58.009186, -78.40312, -0.48000002, -60.009186, -76.65312, -0.48000002, -60.259186, -76.90312, -0.48000002, -67.509186, -85.40312, -0.48000002, -67.509186, -5.153122, -0.48000002, -60.259186, -4.903122, -0.48000002, -67.509186, -3.403122, -0.48000002, -59.759186, 4.096878, -0.48000002, -61.509186, 3.596878, -0.48000002, -61.759186, -3.653122, -0.48000002, -60.259186, 3.596878, -0.48000002, -67.509186, 37.346878, -0.48000002, -30.259186, 37.596878, -0.48000002, -28.009186, 44.596878, -0.48000002, -28.009186, 44.596878, -0.48000002, -46.009186, 46.346878, -0.48000002, -46.259186, 46.096878, -0.48000002, -53.509186, 37.846878, -0.48000002, -53.509186, 29.346878, -0.48000002, -61.509186, -3.403122, -0.48000002, -36.009186, 4.096878, -0.48000002, -30.259186, 53.596878, -0.48000002, -55.759186, 60.596878, -0.48000002, -55.759186, -85.40312, -0.48000002, -21.759186, -78.40312, -0.48000002, -21.759186, 53.596878, -0.48000002, -53.759186, 51.846878, -0.48000002, -53.509186, 52.096878, -0.48000002, -46.259186, 60.596878, -0.48000002, -46.259186, -47.153122, -0.48000002, -31.259186, -45.903122, -0.48000002, -31.759186, -45.903122, -0.48000002, -32.259186, -47.153122, -0.48000002, -32.509186, -61.403122, -0.48000002, -28.259186, -47.153122, -0.48000002, -34.259186, -46.153122, -0.48000002, -28.259186, -46.153122, -0.48000002, -29.259186, -47.153122, -0.48000002, -29.509186, -45.403122, -0.48000002, -34.509186, -38.403122, -0.48000002, -36.009186, -38.403122, -0.48000002, -51.509186, -61.403122, -0.48000002, -51.509186, -6.403122, -0.48000002, -28.009186, -4.903122, -0.48000002, -28.259186, -4.903122, -0.48000002, -35.509186, -6.403122, -0.48000002, -35.759186, -21.653122, -0.48000002, -36.009186, -14.153122, -0.48000002, -22.259186, -6.403122, -0.48000002, -22.259186, -6.403122, -0.48000002, -41.509186, -21.653122, -0.48000002, -41.509186, -44.903122, -0.48000002, -32.509186, -44.903122, -0.48000002, -31.259186, -38.153122, -0.48000002, -35.509186, -44.903122, -0.48000002, -29.509186, -36.903122, -0.48000002, -28.259186, -44.903122, -0.48000002, -34.259186, -36.653122, -0.48000002, -35.509186, -30.903122, -0.48000002, -35.509186, -31.153122, -0.48000002, -28.259186, -29.403122, -0.48000002, -28.009186, -21.903122, -0.48000002, -35.509186, -29.403122, -0.48000002, -20.009186, -14.403122, -0.48000002, -20.009186, -3.653122, -0.48000002, -28.259186, -3.403122, -0.48000002, -27.759186, 3.596878, -0.48000002, -27.759186, 3.596878, -0.48000002, -30.009186, -3.653122, -0.48000002, -35.509186, 37.596878, -0.48000002, -5.759186, 44.596878, -0.48000002, -5.759186, 3.596878, -0.48000002, -15.509186, -3.653122, -0.48000002, -15.509186, 22.846878, -0.48000002, -20.259186, 23.096878, -0.48000002, -27.509186, 16.596878, -0.48000002, -27.509186, 16.596878, -0.48000002, -20.259186, 24.596878, -0.48000002, -20.009186, 24.596878, -0.48000002, -18.009186, 31.596878, -0.48000002, -18.009186, 31.596878, -0.48000002, -27.509186, -78.15312, -0.48000002, -19.509186, -54.403122, -0.48000002, 11.990814, -52.403122, -0.48000002, 11.740814, -52.403122, -0.48000002, 4.490814, -54.403122, -0.48000002, 4.240814, -85.65312, -0.48000002, 27.740814, -85.40312, -0.48000002, 35.740814, -54.403122, -0.48000002, 35.740814, -54.403122, -0.48000002, -4.009186, -52.403122, -0.48000002, -4.259186, -52.403122, -0.48000002, -11.509186, -54.403122, -0.48000002, -11.759186, -85.65312, -0.48000002, -11.509186, -101.40312, -0.48000002, -11.509186, -101.40312, -0.48000002, 27.740814, -54.403122, -0.48000002, -19.509186, -15.153122, -0.48000002, -14.759186, -14.403122, -0.48000002, -15.009186, -29.403122, -0.48000002, -14.759186, -28.903122, -0.48000002, -14.509186, -28.903122, -0.48000002, -12.759186, -15.153122, -0.48000002, -13.009186, 24.596878, -0.48000002, -5.759186, 31.596878, -0.48000002, -5.759186, 3.596878, 0.01999998, -5.759186, 3.846878, 0.01999998, -5.759186, 3.846878, -0.23000002, -6.509186, -3.903122, -0.48000002, -13.509186, -5.403122, -0.48000002, -13.509186, -5.653122, -0.48000002, -12.759186, 5.846878, -0.48000002, -12.759186, 5.346878, -0.48000002, -13.509186, 3.596878, -0.48000002, -13.759186, -6.903122, -0.48000002, -12.759186, -6.903122, -0.48000002, -9.759186, -6.153122, -0.48000002, -9.509186, -6.403122, -0.48000002, -8.509186, 4.346878, -0.48000002, -6.509186, 3.0970612, -0.48000002, -8.519379, 13.596878, 3.27, -13.759186, 14.096878, 3.27, -6.259186, 14.096878, 3.27, -14.259186, 6.346878, 3.27, -14.009186, -13.903122, 3.52, -13.509186, -6.403122, 3.52, -13.759186, -14.153122, 3.52, -14.009186, -14.153122, 3.52, -4.259186, -21.653122, 3.52, -4.009186, -13.903122, 3.52, -3.7591858, -29.903122, 3.52, -11.759186, -29.903122, 3.27, -13.759186, -30.403122, 3.52, -12.009186, -37.653122, 3.52, -12.009186, -28.903122, -0.48000002, -11.009186, -29.403122, -0.48000002, -10.759186, -29.403122, -0.48000002, -5.259186, -28.903122, -0.48000002, -5.009186, -22.653122, -0.48000002, -3.7591858, -22.403122, -0.48000002, -5.009186, -15.153122, -0.48000002, -5.009186, -28.903122, -0.48000002, -3.7591858, -8.653122, -0.48000002, 5.990814, -6.653122, -0.48000002, 4.240814, -6.653122, -0.23000002, 3.7408142, -9.403122, -0.48000002, 5.990814, -7.653122, -0.48000002, -9.509186, -12.903122, -0.48000002, -12.759186, -12.903122, -0.48000002, 2.9908142, -5.903122, 0.01999998, 3.7408142, -7.3031235, -0.48000002, 3.5908127, -12.903122, -0.48000002, 6.740814, -9.903122, -0.48000002, 6.740814, -13.403122, -0.48000002, -2.7591858, -13.403122, -0.48000002, 2.7408142, -12.903122, -0.48000002, -3.0091858, -7.653122, -0.48000002, -8.759186, -3.7920074, 0.52, 1.6296997, 1.4857635, 0.52, -3.6480713, -7.4076157, -0.48000002, 1.977272, -2.9029388, 0.52, -4.0193787, -7.4079742, -0.48000002, -4.002342, -4.4080963, -0.48000002, -7.012211, 6.596878, -0.48000002, -4.259186, 8.596878, -0.48000002, -6.009186, 8.096878, -0.48000002, -6.259186, 4.346878, 0.01999998, -5.509186, 5.596878, 0.01999998, -4.259186, 8.096878, -0.48000002, -7.259186, 6.0919037, -0.48000002, -5.5122147, 9.596878, -0.48000002, -7.509186, 9.846878, -0.48000002, -6.759186, 12.846878, -0.48000002, -6.759186, 12.846878, -0.48000002, -12.759186, -38.403122, -0.48000002, -5.009186, -36.653122, -0.48000002, -5.009186, -36.653122, -0.48000002, -10.759186, -38.403122, -0.48000002, -10.759186, -38.653122, -0.48000002, -4.259186, -38.653122, -0.48000002, -11.509186, 12.846878, -0.48000002, 5.490814, 13.596878, -0.48000002, 5.240814, 13.596878, -0.48000002, 3.9908142, 13.596878, -0.48000002, -3.7591858, 13.596878, -0.48000002, -5.259186, 12.846878, -0.48000002, -5.509186, 6.596878, -0.23000002, -3.7591858, 9.346878, -0.48000002, -6.009186, 4.596878, -0.48000002, 6.240814, 6.346878, -0.48000002, 8.490814, 7.096878, -0.23000002, 8.490814, 4.346878, 0.01999998, 5.490814, 5.263542, -0.48000002, 6.490814, 4.9897385, 0.26999998, 2.8479538, 6.09214, -0.48000002, 5.00753, 7.577034, -0.48000002, 2.008644, 7.346878, -0.23000002, 8.990814, 12.846878, -0.48000002, 8.990814, 5.596878, 0.01999998, -4.009186, 15.596878, -0.48000002, 3.7408142, 15.596878, -0.48000002, -3.5091858, 24.596878, -0.48000002, -3.7591858, 31.846878, -0.48000002, -3.5091858, 36.096878, -0.48000002, 3.7408142, 35.846878, -0.48000002, -3.5091858, 22.846878, -0.48000002, -3.5091858, 23.096878, -0.48000002, 3.7408142, 44.596878, -0.48000002, -3.7591858, 37.596878, -0.48000002, -3.7591858, 46.096878, -0.48000002, 3.7408142, 46.346878, -0.48000002, -3.5091858, -3.653122, 0.01999998, 5.990814, 3.596878, 0.01999998, 5.990814, 1.6119232, 0.52, -0.9902344, 3.0721207, 0.52, 3.4855576, -5.653122, 0.01999998, 4.240814, -4.403122, 0.01999998, 5.490814, -30.403122, 3.52, -3.7591858, -29.903122, 3.27, -2.2591858, -29.903122, 3.52, -4.259186, -37.653122, 3.52, -4.009186, -28.903122, -0.48000002, -1.7591858, -29.403122, -0.48000002, -1.5091858, -29.403122, -0.48000002, 3.4908142, -22.403122, -0.48000002, 2.9908142, -20.653122, -0.48000002, 2.9908142, -20.653122, -0.48000002, -2.7591858, -22.403122, -0.48000002, -2.7591858, -22.653122, -0.48000002, 3.7408142, 59.846878, -0.48000002, 3.7408142, 60.096878, -0.48000002, -3.5091858, 61.596878, -0.48000002, 3.9908142, 61.596878, -0.48000002, 5.990814, 68.59688, -0.48000002, 5.990814, 68.59688, -0.48000002, -3.5091858, -29.403122, -0.48000002, 4.240814, -30.153122, -0.48000002, 4.490814, -29.653122, -0.48000002, 11.740814, -22.403122, -0.48000002, 11.740814, -13.903122, 3.52, 3.7408142, -21.653122, 3.52, 3.9908142, -14.153122, 3.52, 4.490814, -14.153122, 3.52, 13.990814, -13.653122, 3.52, 13.990814, -8.153122, -0.48000002, 6.990814, -8.903122, 0.01999998, 6.990814, -8.903122, -0.48000002, 7.490814, -5.653122, -0.48000002, 12.990814, -5.403122, -0.48000002, 13.490814, -4.153122, -0.48000002, 13.490814, -4.653122, -0.48000002, 6.490814, -8.153122, -0.48000002, 6.240814, -9.653122, -0.48000002, 7.490814, -12.903122, -0.48000002, 12.990814, -4.153122, -0.23000002, 6.490814, -46.403122, -0.48000002, 11.740814, -46.403122, -0.48000002, 4.490814, -37.403122, -0.48000002, 14.240814, -30.403122, -0.48000002, 14.240814, -30.403122, -0.48000002, 11.990814, -37.403122, -0.48000002, 4.490814, 3.596878, -0.48000002, 13.740814, 5.096878, -0.48000002, 13.490814, 5.346878, -0.48000002, 12.990814, 3.596878, -0.23000002, 6.490814, 6.346878, -0.48000002, 9.740814, -3.653122, -0.48000002, 13.740814, -3.653122, -0.48000002, 15.490814, 3.596878, -0.48000002, 15.490814, 7.346878, -0.48000002, 9.740814, 12.846878, -0.48000002, 12.990814, -3.653122, -0.23000002, 6.490814, 61.596878, -0.48000002, 26.240814, 68.59688, -0.48000002, 26.240814, 14.096878, 3.52, 14.240814, 14.096878, 3.27, 6.240814, 13.596878, 3.52, 13.990814, 6.096878, 3.52, 13.990814, 19.346878, -0.48000002, 27.240814, 26.596878, -0.48000002, 27.490814, 26.846878, -0.48000002, 25.740814, 36.096878, -0.48000002, 19.740814, 36.346878, -0.48000002, 12.490814, 34.596878, -0.48000002, 12.240814, 34.596878, -0.48000002, 19.990814, 34.596878, -0.48000002, 6.490814, 19.346878, -0.48000002, 6.490814, 34.596878, -0.48000002, 25.740814, 37.596878, -0.48000002, 19.990814, 37.596878, -0.48000002, 21.990814, 44.596878, -0.48000002, 21.990814, 44.596878, -0.48000002, 12.490814, -30.153122, -0.48000002, 16.490814, -37.653122, -0.48000002, 16.490814, -43.403122, -0.48000002, 16.490814, -43.403122, -0.48000002, 31.740814, -22.903122, -0.48000002, 31.740814, -24.403122, -0.48000002, 24.240814, -22.653122, -0.48000002, 24.490814, -24.403122, -0.48000002, 16.490814, -3.653122, -0.48000002, 36.240814, 3.596878, -0.48000002, 36.240814, 37.596878, -0.48000002, 26.240814, 44.596878, -0.48000002, 26.240814, -16.403122, -0.48000002, 31.740814, -16.403122, -0.48000002, 24.490814, 44.596878, -0.48000002, 28.240814, 44.346878, -0.48000002, 35.990814, 45.096878, -0.48000002, 28.490814, 37.596878, -0.48000002, 35.740814, 61.596878, -0.48000002, 28.240814, 59.846878, -0.48000002, 28.490814, 60.096878, -0.48000002, 35.740814, 68.59688, -0.48000002, 35.740814, 19.346878, -0.48000002, 33.740814, 26.596878, -0.48000002, 33.740814, 44.346878, -0.48000002, 37.740814, 51.596878, -0.48000002, 37.740814, 51.596878, -0.48000002, 35.990814, 53.346878, -0.48000002, 35.740814, 53.096878, -0.48000002, 28.490814, -19.653122, -0.48000002, 53.990814, -21.403122, -0.48000002, 54.240814, -21.153122, -0.48000002, 61.490814, -11.653122, -0.48000002, 61.490814, 21.096878, -0.48000002, 69.490814, 21.346878, -0.48000002, 62.240814, 19.596878, -0.48000002, 61.990814, 3.846878, -0.48000002, 38.240814, -3.903122, -0.48000002, 38.240814, -11.403122, -0.48000002, 69.490814, 19.596878, -0.48000002, 38.240814, -19.653122, -0.48000002, 38.240814, 44.346878, -0.48000002, 60.490814, 51.596878, -0.48000002, 60.740814, -27.653122, -0.48000002, 54.240814, -27.653122, -0.48000002, 61.490814, 44.096878, -0.48000002, 62.240814, 42.596878, -0.48000002, 62.240814, 42.846878, -0.48000002, 69.490814, 51.596878, -0.48000002, 69.490814)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(0, 3, 2), PackedInt32Array(2, 3, 5), PackedInt32Array(2, 5, 4), PackedInt32Array(1, 2, 6), PackedInt32Array(6, 2, 7), PackedInt32Array(10, 9, 8), PackedInt32Array(8, 6, 7), PackedInt32Array(7, 11, 8), PackedInt32Array(8, 11, 10), PackedInt32Array(14, 13, 12), PackedInt32Array(16, 15, 14), PackedInt32Array(16, 14, 17), PackedInt32Array(17, 14, 12), PackedInt32Array(15, 16, 18), PackedInt32Array(18, 16, 19), PackedInt32Array(22, 21, 20), PackedInt32Array(23, 18, 19), PackedInt32Array(20, 23, 22), PackedInt32Array(22, 23, 24), PackedInt32Array(24, 23, 19), PackedInt32Array(26, 25, 27), PackedInt32Array(27, 25, 28), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 31), PackedInt32Array(5, 3, 32), PackedInt32Array(32, 3, 31), PackedInt32Array(21, 33, 20), PackedInt32Array(33, 21, 34), PackedInt32Array(34, 21, 32), PackedInt32Array(34, 32, 28), PackedInt32Array(34, 28, 25), PackedInt32Array(32, 31, 28), PackedInt32Array(9, 10, 35), PackedInt32Array(35, 10, 36), PackedInt32Array(12, 13, 37), PackedInt32Array(37, 13, 38), PackedInt32Array(39, 35, 36), PackedInt32Array(41, 40, 39), PackedInt32Array(41, 39, 42), PackedInt32Array(42, 39, 36), PackedInt32Array(30, 40, 29), PackedInt32Array(29, 40, 41), PackedInt32Array(45, 44, 46), PackedInt32Array(46, 44, 43), PackedInt32Array(46, 43, 47), PackedInt32Array(47, 48, 46), PackedInt32Array(50, 49, 51), PackedInt32Array(51, 49, 47), PackedInt32Array(52, 48, 53), PackedInt32Array(53, 48, 54), PackedInt32Array(47, 55, 48), PackedInt32Array(48, 55, 54), PackedInt32Array(47, 43, 51), PackedInt32Array(58, 57, 56), PackedInt32Array(58, 56, 59), PackedInt32Array(59, 56, 61), PackedInt32Array(59, 61, 60), PackedInt32Array(56, 62, 61), PackedInt32Array(64, 63, 60), PackedInt32Array(60, 63, 59), PackedInt32Array(45, 65, 44), PackedInt32Array(44, 65, 66), PackedInt32Array(66, 65, 67), PackedInt32Array(50, 68, 49), PackedInt32Array(49, 68, 69), PackedInt32Array(70, 52, 53), PackedInt32Array(53, 67, 70), PackedInt32Array(70, 67, 65), PackedInt32Array(71, 69, 67), PackedInt32Array(67, 69, 66), PackedInt32Array(66, 69, 68), PackedInt32Array(73, 72, 74), PackedInt32Array(74, 72, 75), PackedInt32Array(77, 76, 61), PackedInt32Array(61, 76, 74), PackedInt32Array(61, 74, 75), PackedInt32Array(60, 61, 75), PackedInt32Array(79, 78, 80), PackedInt32Array(80, 78, 81), PackedInt32Array(82, 78, 58), PackedInt32Array(58, 78, 57), PackedInt32Array(82, 33, 78), PackedInt32Array(78, 33, 81), PackedInt32Array(81, 33, 34), PackedInt32Array(69, 71, 73), PackedInt32Array(73, 71, 72), PackedInt32Array(26, 27, 83), PackedInt32Array(83, 27, 84), PackedInt32Array(80, 85, 79), PackedInt32Array(79, 85, 86), PackedInt32Array(90, 89, 87), PackedInt32Array(87, 89, 88), PackedInt32Array(93, 92, 91), PackedInt32Array(91, 87, 88), PackedInt32Array(88, 94, 91), PackedInt32Array(91, 94, 93), PackedInt32Array(37, 38, 95), PackedInt32Array(97, 96, 98), PackedInt32Array(98, 96, 99), PackedInt32Array(101, 100, 102), PackedInt32Array(102, 100, 96), PackedInt32Array(104, 103, 105), PackedInt32Array(105, 103, 106), PackedInt32Array(96, 100, 99), PackedInt32Array(99, 100, 109), PackedInt32Array(99, 109, 107), PackedInt32Array(107, 109, 108), PackedInt32Array(37, 95, 107), PackedInt32Array(107, 95, 103), PackedInt32Array(107, 103, 99), PackedInt32Array(95, 110, 106), PackedInt32Array(95, 106, 103), PackedInt32Array(112, 111, 77), PackedInt32Array(77, 111, 114), PackedInt32Array(77, 114, 113), PackedInt32Array(77, 113, 76), PackedInt32Array(111, 116, 114), PackedInt32Array(114, 116, 115), PackedInt32Array(92, 93, 117), PackedInt32Array(117, 93, 118), PackedInt32Array(121, 120, 119), PackedInt32Array(123, 122, 124), PackedInt32Array(127, 126, 125), PackedInt32Array(129, 128, 124), PackedInt32Array(129, 124, 130), PackedInt32Array(130, 124, 122), PackedInt32Array(85, 127, 86), PackedInt32Array(86, 127, 122), PackedInt32Array(122, 131, 130), PackedInt32Array(125, 132, 121), PackedInt32Array(131, 133, 119), PackedInt32Array(119, 133, 121), PackedInt32Array(121, 133, 125), PackedInt32Array(125, 133, 127), PackedInt32Array(127, 133, 122), PackedInt32Array(122, 133, 131), PackedInt32Array(136, 135, 134), PackedInt32Array(136, 134, 137), PackedInt32Array(140, 139, 138), PackedInt32Array(143, 142, 141), PackedInt32Array(143, 141, 138), PackedInt32Array(138, 141, 140), PackedInt32Array(146, 145, 144), PackedInt32Array(146, 144, 147), PackedInt32Array(149, 148, 150), PackedInt32Array(150, 148, 151), PackedInt32Array(151, 148, 153), PackedInt32Array(151, 153, 152), PackedInt32Array(148, 115, 153), PackedInt32Array(153, 115, 154), PackedInt32Array(154, 115, 116), PackedInt32Array(152, 155, 151), PackedInt32Array(157, 156, 158), PackedInt32Array(158, 156, 159), PackedInt32Array(129, 160, 128), PackedInt32Array(128, 160, 161), PackedInt32Array(163, 158, 164), PackedInt32Array(164, 158, 162), PackedInt32Array(159, 166, 165), PackedInt32Array(165, 162, 159), PackedInt32Array(159, 162, 158), PackedInt32Array(167, 169, 168), PackedInt32Array(168, 169, 162), PackedInt32Array(172, 176, 119), PackedInt32Array(119, 176, 131), PackedInt32Array(131, 175, 170), PackedInt32Array(170, 175, 169), PackedInt32Array(169, 173, 162), PackedInt32Array(162, 173, 164), PackedInt32Array(164, 173, 163), PackedInt32Array(163, 173, 171), PackedInt32Array(171, 174, 172), PackedInt32Array(172, 174, 176), PackedInt32Array(176, 175, 131), PackedInt32Array(175, 173, 169), PackedInt32Array(173, 175, 171), PackedInt32Array(171, 175, 174), PackedInt32Array(174, 175, 176), PackedInt32Array(160, 170, 161), PackedInt32Array(161, 170, 169), PackedInt32Array(179, 178, 177), PackedInt32Array(181, 180, 132), PackedInt32Array(182, 132, 125), PackedInt32Array(132, 183, 181), PackedInt32Array(181, 183, 177), PackedInt32Array(177, 183, 179), PackedInt32Array(179, 183, 182), PackedInt32Array(182, 183, 132), PackedInt32Array(185, 184, 186), PackedInt32Array(186, 184, 187), PackedInt32Array(182, 125, 184), PackedInt32Array(184, 125, 187), PackedInt32Array(191, 190, 188), PackedInt32Array(188, 190, 189), PackedInt32Array(188, 192, 191), PackedInt32Array(191, 192, 193), PackedInt32Array(193, 192, 104), PackedInt32Array(193, 104, 105), PackedInt32Array(149, 150, 190), PackedInt32Array(190, 150, 189), PackedInt32Array(196, 195, 194), PackedInt32Array(198, 197, 199), PackedInt32Array(177, 178, 200), PackedInt32Array(200, 178, 201), PackedInt32Array(200, 201, 199), PackedInt32Array(200, 199, 197), PackedInt32Array(185, 186, 201), PackedInt32Array(201, 186, 199), PackedInt32Array(205, 206, 202), PackedInt32Array(202, 206, 203), PackedInt32Array(203, 206, 204), PackedInt32Array(207, 208, 205), PackedInt32Array(205, 208, 206), PackedInt32Array(206, 208, 204), PackedInt32Array(204, 208, 194), PackedInt32Array(194, 209, 196), PackedInt32Array(196, 209, 197), PackedInt32Array(197, 209, 200), PackedInt32Array(200, 209, 207), PackedInt32Array(207, 209, 208), PackedInt32Array(208, 209, 194), PackedInt32Array(210, 204, 211), PackedInt32Array(211, 204, 194), PackedInt32Array(200, 207, 212), PackedInt32Array(212, 207, 205), PackedInt32Array(213, 196, 214), PackedInt32Array(214, 196, 197), PackedInt32Array(117, 118, 215), PackedInt32Array(215, 118, 216), PackedInt32Array(216, 218, 217), PackedInt32Array(219, 215, 220), PackedInt32Array(220, 215, 216), PackedInt32Array(220, 216, 217), PackedInt32Array(222, 83, 221), PackedInt32Array(221, 83, 84), PackedInt32Array(224, 223, 221), PackedInt32Array(221, 223, 222), PackedInt32Array(222, 223, 218), PackedInt32Array(218, 223, 217), PackedInt32Array(120, 180, 119), PackedInt32Array(119, 180, 181), PackedInt32Array(119, 181, 212), PackedInt32Array(171, 225, 163), PackedInt32Array(225, 228, 226), PackedInt32Array(226, 228, 205), PackedInt32Array(205, 228, 212), PackedInt32Array(212, 172, 119), PackedInt32Array(172, 227, 171), PackedInt32Array(171, 228, 225), PackedInt32Array(228, 227, 212), PackedInt32Array(212, 227, 172), PackedInt32Array(227, 228, 171), PackedInt32Array(229, 163, 230), PackedInt32Array(230, 163, 225), PackedInt32Array(233, 232, 231), PackedInt32Array(233, 231, 234), PackedInt32Array(237, 236, 235), PackedInt32Array(241, 240, 238), PackedInt32Array(238, 240, 239), PackedInt32Array(235, 155, 152), PackedInt32Array(238, 242, 241), PackedInt32Array(241, 242, 152), PackedInt32Array(152, 242, 235), PackedInt32Array(235, 242, 237), PackedInt32Array(214, 219, 213), PackedInt32Array(213, 219, 220), PackedInt32Array(223, 224, 243), PackedInt32Array(243, 224, 244), PackedInt32Array(247, 246, 245), PackedInt32Array(245, 243, 244), PackedInt32Array(244, 248, 245), PackedInt32Array(245, 248, 247), PackedInt32Array(167, 168, 240), PackedInt32Array(240, 168, 239), PackedInt32Array(249, 237, 242), PackedInt32Array(249, 242, 250), PackedInt32Array(250, 242, 251), PackedInt32Array(251, 242, 252), PackedInt32Array(255, 254, 253), PackedInt32Array(256, 255, 257), PackedInt32Array(257, 255, 253), PackedInt32Array(260, 259, 258), PackedInt32Array(263, 262, 261), PackedInt32Array(230, 264, 229), PackedInt32Array(229, 264, 157), PackedInt32Array(157, 264, 265), PackedInt32Array(265, 264, 258), PackedInt32Array(265, 156, 157), PackedInt32Array(260, 261, 266), PackedInt32Array(266, 261, 267), PackedInt32Array(264, 268, 258), PackedInt32Array(258, 268, 260), PackedInt32Array(260, 268, 261), PackedInt32Array(261, 268, 263), PackedInt32Array(166, 266, 165), PackedInt32Array(165, 266, 267), PackedInt32Array(98, 270, 97), PackedInt32Array(97, 270, 269), PackedInt32Array(273, 272, 271), PackedInt32Array(251, 273, 250), PackedInt32Array(250, 273, 274), PackedInt32Array(274, 273, 271), PackedInt32Array(277, 276, 275), PackedInt32Array(202, 203, 278), PackedInt32Array(278, 203, 279), PackedInt32Array(275, 282, 280), PackedInt32Array(280, 282, 281), PackedInt32Array(283, 210, 211), PackedInt32Array(211, 284, 283), PackedInt32Array(283, 284, 277), PackedInt32Array(285, 225, 278), PackedInt32Array(278, 225, 226), PackedInt32Array(283, 277, 279), PackedInt32Array(279, 277, 275), PackedInt32Array(263, 285, 280), PackedInt32Array(280, 285, 278), PackedInt32Array(280, 278, 275), PackedInt32Array(275, 278, 279), PackedInt32Array(263, 268, 285), PackedInt32Array(246, 247, 286), PackedInt32Array(286, 247, 287), PackedInt32Array(289, 288, 290), PackedInt32Array(291, 290, 288), PackedInt32Array(294, 293, 292), PackedInt32Array(295, 298, 296), PackedInt32Array(296, 298, 297), PackedInt32Array(299, 297, 300), PackedInt32Array(300, 297, 294), PackedInt32Array(300, 294, 292), PackedInt32Array(298, 301, 294), PackedInt32Array(294, 297, 298), PackedInt32Array(304, 303, 302), PackedInt32Array(302, 295, 296), PackedInt32Array(296, 305, 302), PackedInt32Array(302, 305, 304), PackedInt32Array(272, 306, 271), PackedInt32Array(271, 306, 307), PackedInt32Array(308, 307, 309), PackedInt32Array(309, 307, 311), PackedInt32Array(309, 311, 310), PackedInt32Array(311, 312, 310), PackedInt32Array(306, 313, 311), PackedInt32Array(311, 307, 306), PackedInt32Array(281, 282, 314), PackedInt32Array(314, 282, 315), PackedInt32Array(303, 304, 316), PackedInt32Array(316, 304, 317), PackedInt32Array(319, 318, 312), PackedInt32Array(312, 318, 310), PackedInt32Array(316, 317, 320), PackedInt32Array(320, 322, 316), PackedInt32Array(316, 322, 321), PackedInt32Array(316, 321, 323), PackedInt32Array(324, 286, 287), PackedInt32Array(326, 325, 324), PackedInt32Array(326, 324, 327), PackedInt32Array(327, 324, 287), PackedInt32Array(329, 328, 293), PackedInt32Array(293, 328, 292), PackedInt32Array(332, 331, 321), PackedInt32Array(321, 331, 330), PackedInt32Array(333, 332, 334), PackedInt32Array(334, 332, 322), PackedInt32Array(322, 332, 321), PackedInt32Array(334, 325, 333), PackedInt32Array(333, 325, 326), PackedInt32Array(336, 335, 337), PackedInt32Array(337, 335, 338), PackedInt32Array(341, 340, 339), PackedInt32Array(315, 342, 314), PackedInt32Array(314, 342, 343), PackedInt32Array(343, 342, 338), PackedInt32Array(338, 342, 344), PackedInt32Array(344, 342, 341), PackedInt32Array(344, 341, 339), PackedInt32Array(342, 345, 341), PackedInt32Array(335, 346, 338), PackedInt32Array(338, 346, 343), PackedInt32Array(330, 331, 347), PackedInt32Array(347, 331, 348), PackedInt32Array(349, 336, 350), PackedInt32Array(350, 336, 337), PackedInt32Array(353, 352, 351), PackedInt32Array(351, 347, 348), PackedInt32Array(353, 351, 354), PackedInt32Array(354, 351, 348), PackedInt32Array(340, 352, 339), PackedInt32Array(339, 352, 353)]
+geometry_source_geometry_mode = 1
+geometry_source_group_name = &"navigation"
+
 [node name="Node3D" type="Node3D" unique_id=1940789699]
 
 [node name="Player" parent="." unique_id=289750881 instance=ExtResource("1_f3us2")]
 
 [node name="UI" parent="." unique_id=178172470 instance=ExtResource("3_4ivpw")]
-
-[node name="Enemy" parent="." unique_id=286748419 instance=ExtResource("4_78u67")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0102556, -8.382212)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1961322502]
 environment = SubResource("Environment_wc5p8")
@@ -184,7 +187,7 @@ transform = Transform3D(1, 0, 0, 0, -0.011414205, 0.99993485, 0, -0.99993485, -0
 
 [node name="Spawn" type="Node" parent="Map" unique_id=1349371879]
 
-[node name="Floor with grates" type="StaticBody3D" parent="Map/Spawn" unique_id=769986610]
+[node name="Floor with grates" type="StaticBody3D" parent="Map/Spawn" unique_id=769986610 groups=["navigation"]]
 
 [node name="floor_tile_extralarge_grates_open" parent="Map/Spawn/Floor with grates" unique_id=1003137713 instance=ExtResource("4_f3us2")]
 
@@ -192,7 +195,7 @@ transform = Transform3D(1, 0, 0, 0, -0.011414205, 0.99993485, 0, -0.99993485, -0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00869751, -0.057739258, 0.00015258789)
 shape = SubResource("BoxShape3D_f3us2")
 
-[node name="Curve Floor" type="StaticBody3D" parent="Map/Spawn" unique_id=159530641]
+[node name="Curve Floor" type="StaticBody3D" parent="Map/Spawn" unique_id=159530641 groups=["navigation"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Spawn/Curve Floor" unique_id=758833478]
 transform = Transform3D(1, 0, 0, 0, 0.9655773, -0.26011696, 0, 0.26011696, 0.9655773, -0.0054626465, -0.28647798, 4.9422727)
@@ -229,7 +232,7 @@ transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -
 [node name="floor_tile_small13" parent="Map/Spawn/Curve Floor/Curve Floor" unique_id=1233570758 instance=ExtResource("5_l8ani")]
 transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -3.0790573e-15, -0.96592593, 0.25881907, 1.3113416e-07, 2.9991784, -0.25756818, 4.934213)
 
-[node name="Curve Floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=1409350729]
+[node name="Curve Floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=1409350729 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.009129047, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Spawn/Curve Floor2" unique_id=461438959]
@@ -305,7 +308,7 @@ transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -
 [node name="floor_tile_small13" parent="Map/Spawn/Curve Floor2/Curve Floor3/Curve Floor2" unique_id=2009901853 instance=ExtResource("5_l8ani")]
 transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -3.0790573e-15, -0.96592593, 0.25881907, 1.3113416e-07, 2.9991784, -0.25756818, 4.934213)
 
-[node name="Curve Floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=1945229377]
+[node name="Curve Floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=1945229377 groups=["navigation"]]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Spawn/Curve Floor3" unique_id=1511972557]
@@ -324,7 +327,7 @@ transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -
 [node name="floor_tile_small13" parent="Map/Spawn/Curve Floor3" unique_id=1822580243 instance=ExtResource("5_l8ani")]
 transform = Transform3D(1.2280918e-07, -4.833344e-08, 1, 0.25881907, 0.965926, -3.0790573e-15, -0.96592593, 0.25881907, 1.3113416e-07, 2.9991784, -0.25756818, 4.934213)
 
-[node name="Curve corner floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=700968869]
+[node name="Curve corner floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=700968869 groups=["navigation"]]
 transform = Transform3D(0.99991864, -0.012757893, -5.4776476e-05, 0.012757029, 0.99988586, -0.008098586, 0.00015809106, 0.008097228, 0.9999672, 0, -0.036818504, 0)
 
 [node name="floor_tile_small_corner" parent="Map/Spawn/Curve corner floor2" unique_id=1293442109 instance=ExtResource("6_l8ani")]
@@ -334,7 +337,7 @@ transform = Transform3D(0.02562876, 0.26396376, 0.9641922, 0.24364337, 0.933775,
 transform = Transform3D(0.9597573, 0.2585388, -0.10965304, -0.27911198, 0.92130023, -0.2707453, 0.031025201, 0.29045525, 0.95638573, 4.759465, -0.9128919, 4.8598423)
 shape = SubResource("BoxShape3D_4ivpw")
 
-[node name="Floor decorative4" type="StaticBody3D" parent="Map/Spawn" unique_id=1903311774]
+[node name="Floor decorative4" type="StaticBody3D" parent="Map/Spawn" unique_id=1903311774 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.105, -1, -0.104)
 
 [node name="floor_tile_small2" parent="Map/Spawn/Floor decorative4" unique_id=1844989817 instance=ExtResource("8_4ju78")]
@@ -408,7 +411,7 @@ shape = SubResource("BoxShape3D_pe2yp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.317155, 2.063568, 14)
 shape = SubResource("BoxShape3D_6vmje")
 
-[node name="Floor decorative3" type="StaticBody3D" parent="Map/Spawn" unique_id=1867194154]
+[node name="Floor decorative3" type="StaticBody3D" parent="Map/Spawn" unique_id=1867194154 groups=["navigation"]]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.108, -1, 0.098)
 
 [node name="floor_tile_small2" parent="Map/Spawn/Floor decorative3" unique_id=1954339919 instance=ExtResource("8_4ju78")]
@@ -478,7 +481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00354, -0.055541992, 8.996185)
 shape = SubResource("BoxShape3D_pe2yp")
 
-[node name="Floor decorative2" type="StaticBody3D" parent="Map/Spawn" unique_id=915903959]
+[node name="Floor decorative2" type="StaticBody3D" parent="Map/Spawn" unique_id=915903959 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.096, -1, 0.122)
 
 [node name="floor_tile_small2" parent="Map/Spawn/Floor decorative2" unique_id=1939518375 instance=ExtResource("8_4ju78")]
@@ -548,7 +551,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00354, -0.055541992, 8.996185)
 shape = SubResource("BoxShape3D_pe2yp")
 
-[node name="Floor decorative" type="StaticBody3D" parent="Map/Spawn" unique_id=179104567]
+[node name="Floor decorative" type="StaticBody3D" parent="Map/Spawn" unique_id=179104567 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.096, -1, -0.104)
 
 [node name="floor_tile_small2" parent="Map/Spawn/Floor decorative" unique_id=1571711599 instance=ExtResource("8_4ju78")]
@@ -618,7 +621,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9, 0, 11)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.00354, -0.055541992, 8.996185)
 shape = SubResource("BoxShape3D_pe2yp")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=302089938]
+[node name="Floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=302089938 groups=["navigation"]]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Spawn/Floor4" unique_id=677646172 instance=ExtResource("7_4ivpw")]
@@ -637,7 +640,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=1250182594]
+[node name="Floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=1250182594 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Spawn/Floor3" unique_id=1945539497 instance=ExtResource("7_4ivpw")]
@@ -656,7 +659,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=393495665]
+[node name="Floor2" type="StaticBody3D" parent="Map/Spawn" unique_id=393495665 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Spawn/Floor2" unique_id=1336180469 instance=ExtResource("7_4ivpw")]
@@ -675,7 +678,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor" type="StaticBody3D" parent="Map/Spawn" unique_id=1319128443]
+[node name="Floor" type="StaticBody3D" parent="Map/Spawn" unique_id=1319128443 groups=["navigation"]]
 
 [node name="floor_tile_large4" parent="Map/Spawn/Floor" unique_id=1733034455 instance=ExtResource("7_4ivpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 11.903123)
@@ -693,7 +696,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Curve corner floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=852601757]
+[node name="Curve corner floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=852601757 groups=["navigation"]]
 transform = Transform3D(-0.99991864, 0.012757893, 5.4689055e-05, 0.012757029, 0.99988586, -0.008098586, -0.00015800368, -0.008097231, -0.9999672, 0, -0.036818504, 0)
 
 [node name="floor_tile_small_corner" parent="Map/Spawn/Curve corner floor4" unique_id=1042417799 instance=ExtResource("6_l8ani")]
@@ -703,7 +706,7 @@ transform = Transform3D(0.02562876, 0.26396376, 0.9641922, 0.24364337, 0.933775,
 transform = Transform3D(0.9597573, 0.2585388, -0.10965304, -0.27911198, 0.92130023, -0.2707453, 0.031025201, 0.29045525, 0.95638573, 4.759465, -0.9128919, 4.8598423)
 shape = SubResource("BoxShape3D_4ivpw")
 
-[node name="Curve corner floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=453948276]
+[node name="Curve corner floor3" type="StaticBody3D" parent="Map/Spawn" unique_id=453948276 groups=["navigation"]]
 transform = Transform3D(-0.00015795998, -0.008097231, -0.99996734, 0.012757029, 0.99988586, -0.008098586, 0.9999185, -0.012757891, -5.4645323e-05, 0, -0.036818504, 0)
 
 [node name="floor_tile_small_corner" parent="Map/Spawn/Curve corner floor3" unique_id=1606829987 instance=ExtResource("6_l8ani")]
@@ -713,7 +716,7 @@ transform = Transform3D(0.02562876, 0.26396376, 0.9641922, 0.24364337, 0.933775,
 transform = Transform3D(0.9597573, 0.2585388, -0.10965304, -0.27911198, 0.92130023, -0.2707453, 0.031025201, 0.29045525, 0.95638573, 4.759465, -0.9128919, 4.8598423)
 shape = SubResource("BoxShape3D_4ivpw")
 
-[node name="Curve corner floor" type="StaticBody3D" parent="Map/Spawn" unique_id=1613423544]
+[node name="Curve corner floor" type="StaticBody3D" parent="Map/Spawn" unique_id=1613423544 groups=["navigation"]]
 transform = Transform3D(0.00015804738, 0.0080972295, 0.9999672, 0.012757029, 0.99988586, -0.008098586, -0.9999185, 0.012757891, 5.4732755e-05, 0, -0.036818504, 0)
 
 [node name="floor_tile_small_corner" parent="Map/Spawn/Curve corner floor" unique_id=650391895 instance=ExtResource("6_l8ani")]
@@ -723,7 +726,7 @@ transform = Transform3D(0.02562876, 0.26396376, 0.9641922, 0.24364337, 0.933775,
 transform = Transform3D(0.9597573, 0.2585388, -0.10965304, -0.27911198, 0.92130023, -0.2707453, 0.031025201, 0.29045525, 0.95638573, 4.759465, -0.9128919, 4.8598423)
 shape = SubResource("BoxShape3D_4ivpw")
 
-[node name="Curve Floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=488552644]
+[node name="Curve Floor4" type="StaticBody3D" parent="Map/Spawn" unique_id=488552644 groups=["navigation"]]
 transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -0.009129047, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Spawn/Curve Floor4" unique_id=196992276]
@@ -870,7 +873,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -1, -4)
 [node name="wall_cracked" parent="Map/Tunnel T open2" unique_id=274198393 instance=ExtResource("20_ptsh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -4)
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T open2" unique_id=499032624]
+[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T open2" unique_id=499032624 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Tunnel T open2/Floor3" unique_id=47143852 instance=ExtResource("7_4ivpw")]
@@ -926,7 +929,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -1, -4)
 [node name="wall_cracked" parent="Map/Tunnel T open3" unique_id=1766976447 instance=ExtResource("20_ptsh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -4)
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T open3" unique_id=782872100]
+[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T open3" unique_id=782872100 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Tunnel T open3/Floor3" unique_id=428516410 instance=ExtResource("7_4ivpw")]
@@ -982,7 +985,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, -1, -4)
 [node name="wall_cracked" parent="Map/Tunnel T open4" unique_id=950891862 instance=ExtResource("20_ptsh8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, -1, -4)
 
-[node name="Floor3" parent="Map/Tunnel T open4" unique_id=1232378008 instance=ExtResource("24_ig2vp")]
+[node name="Floor3" parent="Map/Tunnel T open4" unique_id=1232378008 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Tunnel T open4" unique_id=1273381821]
@@ -1004,7 +1007,7 @@ shape = SubResource("BoxShape3D_n5ey3")
 [node name="Tunnel T" type="StaticBody3D" parent="Map" unique_id=1218738628]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T" unique_id=1319727695]
+[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel T" unique_id=1319727695 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Tunnel T/Floor3" unique_id=1314504376 instance=ExtResource("7_4ivpw")]
@@ -1054,7 +1057,7 @@ shape = SubResource("BoxShape3D_l81bs")
 
 [node name="Room" type="StaticBody3D" parent="Map" unique_id=533798096]
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Room" unique_id=1943091997]
+[node name="Floor3" type="StaticBody3D" parent="Map/Room" unique_id=1943091997 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Room/Floor3" unique_id=1731095673 instance=ExtResource("7_4ivpw")]
@@ -1073,7 +1076,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/Room" unique_id=1170520642]
+[node name="Floor4" type="StaticBody3D" parent="Map/Room" unique_id=1170520642 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Room/Floor4" unique_id=1458865096 instance=ExtResource("7_4ivpw")]
@@ -1092,7 +1095,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor5" type="StaticBody3D" parent="Map/Room" unique_id=564876905]
+[node name="Floor5" type="StaticBody3D" parent="Map/Room" unique_id=564876905 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, -10)
 
 [node name="floor_tile_large4" parent="Map/Room/Floor5" unique_id=801609310 instance=ExtResource("7_4ivpw")]
@@ -1149,7 +1152,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30,
 [node name="wall_corner" parent="Map/Tunnel L" unique_id=2034508642 instance=ExtResource("17_x6riq")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22, -1, 12)
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel L" unique_id=1089983820]
+[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel L" unique_id=1089983820 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Tunnel L/Floor3" unique_id=293274486 instance=ExtResource("7_4ivpw")]
@@ -1186,7 +1189,7 @@ shape = SubResource("BoxShape3D_crikj")
 [node name="Tunnel L2" type="StaticBody3D" parent="Map" unique_id=1900583606]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, 12)
 
-[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel L2" unique_id=1225763442]
+[node name="Floor3" type="StaticBody3D" parent="Map/Tunnel L2" unique_id=1225763442 groups=["navigation"]]
 
 [node name="floor_tile_large4" parent="Map/Tunnel L2/Floor3" unique_id=2062188831 instance=ExtResource("7_4ivpw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, -1, 11.903123)
@@ -1204,7 +1207,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/Tunnel L2" unique_id=955662448]
+[node name="Floor4" type="StaticBody3D" parent="Map/Tunnel L2" unique_id=955662448 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Tunnel L2/Floor4" unique_id=244356723 instance=ExtResource("7_4ivpw")]
@@ -1250,7 +1253,7 @@ shape = SubResource("BoxShape3D_srbwv")
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.6206169, 0.9867325, 5.7229614)
 shape = SubResource("BoxShape3D_amn33")
 
-[node name="Floor6" type="StaticBody3D" parent="Map" unique_id=665936112]
+[node name="Floor6" type="StaticBody3D" parent="Map" unique_id=665936112 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Floor6" unique_id=150831540 instance=ExtResource("7_4ivpw")]
@@ -1269,7 +1272,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor7" type="StaticBody3D" parent="Map" unique_id=1832894123]
+[node name="Floor7" type="StaticBody3D" parent="Map" unique_id=1832894123 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Floor7" unique_id=724586735 instance=ExtResource("7_4ivpw")]
@@ -1288,7 +1291,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor8" type="StaticBody3D" parent="Map" unique_id=391260494]
+[node name="Floor8" type="StaticBody3D" parent="Map" unique_id=391260494 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Floor8" unique_id=879505589 instance=ExtResource("7_4ivpw")]
@@ -1307,7 +1310,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor9" type="StaticBody3D" parent="Map" unique_id=443179218]
+[node name="Floor9" type="StaticBody3D" parent="Map" unique_id=443179218 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Floor9" unique_id=2023718049 instance=ExtResource("7_4ivpw")]
@@ -1326,7 +1329,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor10" type="StaticBody3D" parent="Map" unique_id=239675147]
+[node name="Floor10" type="StaticBody3D" parent="Map" unique_id=239675147 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Floor10" unique_id=872438434 instance=ExtResource("7_4ivpw")]
@@ -1345,7 +1348,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor11" type="StaticBody3D" parent="Map" unique_id=2410220]
+[node name="Floor11" type="StaticBody3D" parent="Map" unique_id=2410220 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Floor11" unique_id=821186239 instance=ExtResource("7_4ivpw")]
@@ -1364,7 +1367,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor12" type="StaticBody3D" parent="Map" unique_id=1472897590]
+[node name="Floor12" type="StaticBody3D" parent="Map" unique_id=1472897590 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor12" unique_id=1723226751 instance=ExtResource("7_4ivpw")]
@@ -1383,7 +1386,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor13" type="StaticBody3D" parent="Map" unique_id=752803652]
+[node name="Floor13" type="StaticBody3D" parent="Map" unique_id=752803652 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor13" unique_id=1437739155 instance=ExtResource("7_4ivpw")]
@@ -1402,7 +1405,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor14" type="StaticBody3D" parent="Map" unique_id=1843965422]
+[node name="Floor14" type="StaticBody3D" parent="Map" unique_id=1843965422 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor14" unique_id=800205414 instance=ExtResource("7_4ivpw")]
@@ -1421,7 +1424,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor15" type="StaticBody3D" parent="Map" unique_id=1940063114]
+[node name="Floor15" type="StaticBody3D" parent="Map" unique_id=1940063114 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor15" unique_id=276802558 instance=ExtResource("7_4ivpw")]
@@ -1440,7 +1443,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor17" type="StaticBody3D" parent="Map" unique_id=35541547]
+[node name="Floor17" type="StaticBody3D" parent="Map" unique_id=35541547 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -16)
 
 [node name="floor_tile_large4" parent="Map/Floor17" unique_id=1766907770 instance=ExtResource("7_4ivpw")]
@@ -1459,7 +1462,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor18" type="StaticBody3D" parent="Map" unique_id=129101707]
+[node name="Floor18" type="StaticBody3D" parent="Map" unique_id=129101707 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, -16)
 
 [node name="floor_tile_large4" parent="Map/Floor18" unique_id=683758009 instance=ExtResource("7_4ivpw")]
@@ -1478,7 +1481,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor19" type="StaticBody3D" parent="Map" unique_id=2023380950]
+[node name="Floor19" type="StaticBody3D" parent="Map" unique_id=2023380950 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, -16)
 
 [node name="floor_tile_large4" parent="Map/Floor19" unique_id=2135107956 instance=ExtResource("7_4ivpw")]
@@ -1497,7 +1500,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor20" type="StaticBody3D" parent="Map" unique_id=1484561678]
+[node name="Floor20" type="StaticBody3D" parent="Map" unique_id=1484561678 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -16)
 
 [node name="floor_tile_large4" parent="Map/Floor20" unique_id=1507687408 instance=ExtResource("7_4ivpw")]
@@ -1516,7 +1519,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor21" type="StaticBody3D" parent="Map" unique_id=1847393274]
+[node name="Floor21" type="StaticBody3D" parent="Map" unique_id=1847393274 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -24)
 
 [node name="floor_tile_large4" parent="Map/Floor21" unique_id=846813086 instance=ExtResource("7_4ivpw")]
@@ -1535,7 +1538,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor23" type="StaticBody3D" parent="Map" unique_id=1695980821]
+[node name="Floor23" type="StaticBody3D" parent="Map" unique_id=1695980821 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, -16)
 
 [node name="floor_tile_large4" parent="Map/Floor23" unique_id=1646661868 instance=ExtResource("7_4ivpw")]
@@ -1554,7 +1557,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor24" type="StaticBody3D" parent="Map" unique_id=458126554]
+[node name="Floor24" type="StaticBody3D" parent="Map" unique_id=458126554 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, -24)
 
 [node name="floor_tile_large4" parent="Map/Floor24" unique_id=2047459016 instance=ExtResource("7_4ivpw")]
@@ -1573,7 +1576,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor25" type="StaticBody3D" parent="Map" unique_id=1234883068]
+[node name="Floor25" type="StaticBody3D" parent="Map" unique_id=1234883068 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Floor25" unique_id=954031292 instance=ExtResource("7_4ivpw")]
@@ -1592,7 +1595,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor26" type="StaticBody3D" parent="Map" unique_id=763304890]
+[node name="Floor26" type="StaticBody3D" parent="Map" unique_id=763304890 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Floor26" unique_id=1321859041 instance=ExtResource("7_4ivpw")]
@@ -1611,7 +1614,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor27" type="StaticBody3D" parent="Map" unique_id=1070224075]
+[node name="Floor27" type="StaticBody3D" parent="Map" unique_id=1070224075 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Floor27" unique_id=1549773123 instance=ExtResource("7_4ivpw")]
@@ -1636,10 +1639,10 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 2, -
 [node name="wall_endcap2" parent="Map/Floor27" unique_id=1388749233 instance=ExtResource("27_l81bs")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9999981, -1, 14)
 
-[node name="Tunnel T open" parent="Map" unique_id=839890942 instance=ExtResource("27_ks46r")]
+[node name="Tunnel T open" parent="Map" unique_id=839890942 groups=["navigation"] instance=ExtResource("27_ks46r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
 
-[node name="Tunnel T open5" parent="Map" unique_id=992018378 instance=ExtResource("27_ks46r")]
+[node name="Tunnel T open5" parent="Map" unique_id=992018378 groups=["navigation"] instance=ExtResource("27_ks46r")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14, 0, -8)
 
 [node name="Wall" parent="Map" unique_id=1283208265 instance=ExtResource("28_h4eyc")]
@@ -1648,7 +1651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -1, -10)
 [node name="Wall2" parent="Map" unique_id=1962182510 instance=ExtResource("28_h4eyc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30, -1, -18)
 
-[node name="Floor28" type="StaticBody3D" parent="Map" unique_id=981251436]
+[node name="Floor28" type="StaticBody3D" parent="Map" unique_id=981251436 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Floor28" unique_id=1952611046 instance=ExtResource("7_4ivpw")]
@@ -1693,7 +1696,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18, -1, -42)
 
 [node name="L room" type="StaticBody3D" parent="Map" unique_id=63066965]
 
-[node name="Floor10" type="StaticBody3D" parent="Map/L room" unique_id=1740823214]
+[node name="Floor10" type="StaticBody3D" parent="Map/L room" unique_id=1740823214 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor10" unique_id=529964892 instance=ExtResource("7_4ivpw")]
@@ -1712,7 +1715,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor9" type="StaticBody3D" parent="Map/L room" unique_id=739292349]
+[node name="Floor9" type="StaticBody3D" parent="Map/L room" unique_id=739292349 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor9" unique_id=879242332 instance=ExtResource("7_4ivpw")]
@@ -1731,7 +1734,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor8" type="StaticBody3D" parent="Map/L room" unique_id=631154296]
+[node name="Floor8" type="StaticBody3D" parent="Map/L room" unique_id=631154296 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor8" unique_id=228970423 instance=ExtResource("7_4ivpw")]
@@ -1750,7 +1753,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor7" type="StaticBody3D" parent="Map/L room" unique_id=833274980]
+[node name="Floor7" type="StaticBody3D" parent="Map/L room" unique_id=833274980 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor7" unique_id=377136018 instance=ExtResource("7_4ivpw")]
@@ -1769,7 +1772,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor6" type="StaticBody3D" parent="Map/L room" unique_id=1212006163]
+[node name="Floor6" type="StaticBody3D" parent="Map/L room" unique_id=1212006163 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor6" unique_id=1540870584 instance=ExtResource("7_4ivpw")]
@@ -1788,7 +1791,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor5" type="StaticBody3D" parent="Map/L room" unique_id=2122446133]
+[node name="Floor5" type="StaticBody3D" parent="Map/L room" unique_id=2122446133 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor5" unique_id=440927979 instance=ExtResource("7_4ivpw")]
@@ -1807,7 +1810,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/L room" unique_id=864425320]
+[node name="Floor4" type="StaticBody3D" parent="Map/L room" unique_id=864425320 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room/Floor4" unique_id=1792201149 instance=ExtResource("7_4ivpw")]
@@ -1941,7 +1944,7 @@ shape = SubResource("BoxShape3D_3l1ww")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.25596, 0.7357788, 16.014404)
 shape = SubResource("BoxShape3D_dfnfx")
 
-[node name="Floor4" type="StaticBody3D" parent="Map" unique_id=1634677489]
+[node name="Floor4" type="StaticBody3D" parent="Map" unique_id=1634677489 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Floor4" unique_id=2099380674 instance=ExtResource("7_4ivpw")]
@@ -1980,7 +1983,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22,
 
 [node name="Room3" type="Node" parent="Map" unique_id=2036339021]
 
-[node name="Floor29" type="StaticBody3D" parent="Map/Room3" unique_id=2051096516]
+[node name="Floor29" type="StaticBody3D" parent="Map/Room3" unique_id=2051096516 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor29" unique_id=1546344475 instance=ExtResource("7_4ivpw")]
@@ -1999,7 +2002,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor30" type="StaticBody3D" parent="Map/Room3" unique_id=1918322874]
+[node name="Floor30" type="StaticBody3D" parent="Map/Room3" unique_id=1918322874 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor30" unique_id=306419453 instance=ExtResource("7_4ivpw")]
@@ -2018,7 +2021,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor31" type="StaticBody3D" parent="Map/Room3" unique_id=1125781402]
+[node name="Floor31" type="StaticBody3D" parent="Map/Room3" unique_id=1125781402 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, -40)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor31" unique_id=903847252 instance=ExtResource("7_4ivpw")]
@@ -2037,7 +2040,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor32" type="StaticBody3D" parent="Map/Room3" unique_id=12023681]
+[node name="Floor32" type="StaticBody3D" parent="Map/Room3" unique_id=12023681 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -40)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor32" unique_id=907558549 instance=ExtResource("7_4ivpw")]
@@ -2110,7 +2113,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -38, -1, -52)
 [node name="Wall7" parent="Map/Room3" unique_id=1917147697 instance=ExtResource("28_h4eyc")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -44, -1, -54)
 
-[node name="Floor33" type="StaticBody3D" parent="Map/Room3" unique_id=826634501]
+[node name="Floor33" type="StaticBody3D" parent="Map/Room3" unique_id=826634501 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -40)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor33" unique_id=111841747 instance=ExtResource("7_4ivpw")]
@@ -2129,7 +2132,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor35" type="StaticBody3D" parent="Map/Room3" unique_id=2013947511]
+[node name="Floor35" type="StaticBody3D" parent="Map/Room3" unique_id=2013947511 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -48)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor35" unique_id=1683881331 instance=ExtResource("7_4ivpw")]
@@ -2148,7 +2151,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor36" type="StaticBody3D" parent="Map/Room3" unique_id=1440357301]
+[node name="Floor36" type="StaticBody3D" parent="Map/Room3" unique_id=1440357301 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -48)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor36" unique_id=2038685485 instance=ExtResource("7_4ivpw")]
@@ -2167,7 +2170,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor34" type="StaticBody3D" parent="Map/Room3" unique_id=1031060208]
+[node name="Floor34" type="StaticBody3D" parent="Map/Room3" unique_id=1031060208 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, -48)
 
 [node name="floor_tile_large4" parent="Map/Room3/Floor34" unique_id=137890773 instance=ExtResource("7_4ivpw")]
@@ -2215,7 +2218,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -46,
 [node name="wall_corner" parent="Map/Small closed room" unique_id=1943012220 instance=ExtResource("26_10iin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46, -1, 4)
 
-[node name="Floor29" type="StaticBody3D" parent="Map" unique_id=1720592419]
+[node name="Floor29" type="StaticBody3D" parent="Map" unique_id=1720592419 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -40)
 
 [node name="floor_tile_large4" parent="Map/Floor29" unique_id=75115397 instance=ExtResource("7_4ivpw")]
@@ -2234,7 +2237,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor30" type="StaticBody3D" parent="Map" unique_id=962076874]
+[node name="Floor30" type="StaticBody3D" parent="Map" unique_id=962076874 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -48)
 
 [node name="floor_tile_large4" parent="Map/Floor30" unique_id=1875517300 instance=ExtResource("7_4ivpw")]
@@ -2253,7 +2256,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor31" type="StaticBody3D" parent="Map" unique_id=314725513]
+[node name="Floor31" type="StaticBody3D" parent="Map" unique_id=314725513 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -32)
 
 [node name="floor_tile_large4" parent="Map/Floor31" unique_id=132559333 instance=ExtResource("7_4ivpw")]
@@ -2272,7 +2275,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor32" type="StaticBody3D" parent="Map" unique_id=1381413114]
+[node name="Floor32" type="StaticBody3D" parent="Map" unique_id=1381413114 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -56)
 
 [node name="floor_tile_large4" parent="Map/Floor32" unique_id=632810272 instance=ExtResource("7_4ivpw")]
@@ -2291,7 +2294,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor33" type="StaticBody3D" parent="Map" unique_id=465559745]
+[node name="Floor33" type="StaticBody3D" parent="Map" unique_id=465559745 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor33" unique_id=1939195867 instance=ExtResource("7_4ivpw")]
@@ -2310,7 +2313,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor34" type="StaticBody3D" parent="Map" unique_id=401373936]
+[node name="Floor34" type="StaticBody3D" parent="Map" unique_id=401373936 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor34" unique_id=653290598 instance=ExtResource("7_4ivpw")]
@@ -2329,7 +2332,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor35" type="StaticBody3D" parent="Map" unique_id=1166112568]
+[node name="Floor35" type="StaticBody3D" parent="Map" unique_id=1166112568 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor35" unique_id=1107536722 instance=ExtResource("7_4ivpw")]
@@ -2348,7 +2351,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor36" type="StaticBody3D" parent="Map" unique_id=1982177873]
+[node name="Floor36" type="StaticBody3D" parent="Map" unique_id=1982177873 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -48, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor36" unique_id=1231184311 instance=ExtResource("7_4ivpw")]
@@ -2367,7 +2370,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor37" type="StaticBody3D" parent="Map" unique_id=2078469550]
+[node name="Floor37" type="StaticBody3D" parent="Map" unique_id=2078469550 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -40, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor37" unique_id=884795279 instance=ExtResource("7_4ivpw")]
@@ -2386,7 +2389,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor38" type="StaticBody3D" parent="Map" unique_id=1451738182]
+[node name="Floor38" type="StaticBody3D" parent="Map" unique_id=1451738182 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -32, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor38" unique_id=706043091 instance=ExtResource("7_4ivpw")]
@@ -2405,7 +2408,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor39" type="StaticBody3D" parent="Map" unique_id=358667267]
+[node name="Floor39" type="StaticBody3D" parent="Map" unique_id=358667267 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor39" unique_id=505486748 instance=ExtResource("7_4ivpw")]
@@ -2424,7 +2427,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor40" type="StaticBody3D" parent="Map" unique_id=38018088]
+[node name="Floor40" type="StaticBody3D" parent="Map" unique_id=38018088 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor40" unique_id=891084539 instance=ExtResource("7_4ivpw")]
@@ -2443,7 +2446,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor41" type="StaticBody3D" parent="Map" unique_id=355336659]
+[node name="Floor41" type="StaticBody3D" parent="Map" unique_id=355336659 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -8, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor41" unique_id=2112983888 instance=ExtResource("7_4ivpw")]
@@ -2462,7 +2465,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor42" type="StaticBody3D" parent="Map" unique_id=347850635]
+[node name="Floor42" type="StaticBody3D" parent="Map" unique_id=347850635 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, -64)
 
 [node name="floor_tile_large4" parent="Map/Floor42" unique_id=739564774 instance=ExtResource("7_4ivpw")]
@@ -2489,7 +2492,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -54,
 
 [node name="Big Room" type="Node" parent="Map" unique_id=1557263211]
 
-[node name="Floor16" type="StaticBody3D" parent="Map/Big Room" unique_id=861364542]
+[node name="Floor16" type="StaticBody3D" parent="Map/Big Room" unique_id=861364542 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor16" unique_id=1944244710 instance=ExtResource("7_4ivpw")]
@@ -2568,7 +2571,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82, -1, -18)
 [node name="wall_corner9" parent="Map/Big Room" unique_id=352982058 instance=ExtResource("26_10iin")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -102, -1, -12)
 
-[node name="Floor17" type="StaticBody3D" parent="Map/Big Room" unique_id=1772696146]
+[node name="Floor17" type="StaticBody3D" parent="Map/Big Room" unique_id=1772696146 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor17" unique_id=503261479 instance=ExtResource("7_4ivpw")]
@@ -2587,7 +2590,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor18" type="StaticBody3D" parent="Map/Big Room" unique_id=1932711909]
+[node name="Floor18" type="StaticBody3D" parent="Map/Big Room" unique_id=1932711909 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor18" unique_id=884416451 instance=ExtResource("7_4ivpw")]
@@ -2606,7 +2609,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor19" type="StaticBody3D" parent="Map/Big Room" unique_id=959833933]
+[node name="Floor19" type="StaticBody3D" parent="Map/Big Room" unique_id=959833933 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor19" unique_id=1188647232 instance=ExtResource("7_4ivpw")]
@@ -2625,7 +2628,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor20" type="StaticBody3D" parent="Map/Big Room" unique_id=469167839]
+[node name="Floor20" type="StaticBody3D" parent="Map/Big Room" unique_id=469167839 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor20" unique_id=145624442 instance=ExtResource("7_4ivpw")]
@@ -2644,10 +2647,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor21" parent="Map/Big Room" unique_id=1269063703 instance=ExtResource("24_ig2vp")]
+[node name="Floor21" parent="Map/Big Room" unique_id=1269063703 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, 16)
 
-[node name="Floor36" type="StaticBody3D" parent="Map/Big Room" unique_id=1660779375]
+[node name="Floor36" type="StaticBody3D" parent="Map/Big Room" unique_id=1660779375 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -88, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor36" unique_id=1673176716 instance=ExtResource("7_4ivpw")]
@@ -2666,7 +2669,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor37" type="StaticBody3D" parent="Map/Big Room" unique_id=248907573]
+[node name="Floor37" type="StaticBody3D" parent="Map/Big Room" unique_id=248907573 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor37" unique_id=93514283 instance=ExtResource("7_4ivpw")]
@@ -2685,7 +2688,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor38" type="StaticBody3D" parent="Map/Big Room" unique_id=1137494086]
+[node name="Floor38" type="StaticBody3D" parent="Map/Big Room" unique_id=1137494086 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor38" unique_id=1177743262 instance=ExtResource("7_4ivpw")]
@@ -2704,7 +2707,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor39" type="StaticBody3D" parent="Map/Big Room" unique_id=209797131]
+[node name="Floor39" type="StaticBody3D" parent="Map/Big Room" unique_id=209797131 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -88, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor39" unique_id=34874763 instance=ExtResource("7_4ivpw")]
@@ -2723,7 +2726,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor40" type="StaticBody3D" parent="Map/Big Room" unique_id=1121983000]
+[node name="Floor40" type="StaticBody3D" parent="Map/Big Room" unique_id=1121983000 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor40" unique_id=847960906 instance=ExtResource("7_4ivpw")]
@@ -2742,7 +2745,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor41" type="StaticBody3D" parent="Map/Big Room" unique_id=1816981064]
+[node name="Floor41" type="StaticBody3D" parent="Map/Big Room" unique_id=1816981064 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor41" unique_id=1943628472 instance=ExtResource("7_4ivpw")]
@@ -2761,7 +2764,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor42" type="StaticBody3D" parent="Map/Big Room" unique_id=1926525015]
+[node name="Floor42" type="StaticBody3D" parent="Map/Big Room" unique_id=1926525015 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -88, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor42" unique_id=318197223 instance=ExtResource("7_4ivpw")]
@@ -2780,7 +2783,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor43" type="StaticBody3D" parent="Map/Big Room" unique_id=1387951391]
+[node name="Floor43" type="StaticBody3D" parent="Map/Big Room" unique_id=1387951391 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80, 0, 8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor43" unique_id=2004537659 instance=ExtResource("7_4ivpw")]
@@ -2799,7 +2802,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor44" type="StaticBody3D" parent="Map/Big Room" unique_id=1991460264]
+[node name="Floor44" type="StaticBody3D" parent="Map/Big Room" unique_id=1991460264 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor44" unique_id=944534319 instance=ExtResource("7_4ivpw")]
@@ -2818,7 +2821,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor45" type="StaticBody3D" parent="Map/Big Room" unique_id=840197179]
+[node name="Floor45" type="StaticBody3D" parent="Map/Big Room" unique_id=840197179 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor45" unique_id=973042111 instance=ExtResource("7_4ivpw")]
@@ -2837,7 +2840,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor46" type="StaticBody3D" parent="Map/Big Room" unique_id=1683491264]
+[node name="Floor46" type="StaticBody3D" parent="Map/Big Room" unique_id=1683491264 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -64, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor46" unique_id=356756811 instance=ExtResource("7_4ivpw")]
@@ -2856,7 +2859,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor47" type="StaticBody3D" parent="Map/Big Room" unique_id=1400232959]
+[node name="Floor47" type="StaticBody3D" parent="Map/Big Room" unique_id=1400232959 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -56, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor47" unique_id=1619889147 instance=ExtResource("7_4ivpw")]
@@ -2875,7 +2878,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor48" type="StaticBody3D" parent="Map/Big Room" unique_id=528903942]
+[node name="Floor48" type="StaticBody3D" parent="Map/Big Room" unique_id=528903942 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor48" unique_id=320807705 instance=ExtResource("7_4ivpw")]
@@ -2894,7 +2897,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor49" type="StaticBody3D" parent="Map/Big Room" unique_id=1499343412]
+[node name="Floor49" type="StaticBody3D" parent="Map/Big Room" unique_id=1499343412 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor49" unique_id=1505757560 instance=ExtResource("7_4ivpw")]
@@ -2913,7 +2916,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor50" type="StaticBody3D" parent="Map/Big Room" unique_id=1918293492]
+[node name="Floor50" type="StaticBody3D" parent="Map/Big Room" unique_id=1918293492 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor50" unique_id=1883331120 instance=ExtResource("7_4ivpw")]
@@ -2932,7 +2935,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor53" type="StaticBody3D" parent="Map/Big Room" unique_id=391013662]
+[node name="Floor53" type="StaticBody3D" parent="Map/Big Room" unique_id=391013662 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -88, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor53" unique_id=832775804 instance=ExtResource("7_4ivpw")]
@@ -2951,7 +2954,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor52" type="StaticBody3D" parent="Map/Big Room" unique_id=1604088065]
+[node name="Floor52" type="StaticBody3D" parent="Map/Big Room" unique_id=1604088065 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -80, 0, 0)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor52" unique_id=12310404 instance=ExtResource("7_4ivpw")]
@@ -2970,7 +2973,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor51" type="StaticBody3D" parent="Map/Big Room" unique_id=537874144]
+[node name="Floor51" type="StaticBody3D" parent="Map/Big Room" unique_id=537874144 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -88, 0, -8)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor51" unique_id=1633569149 instance=ExtResource("7_4ivpw")]
@@ -2992,7 +2995,7 @@ shape = SubResource("BoxShape3D_78u67")
 [node name="wall_corner5" parent="Map/Big Room" unique_id=1457589176 instance=ExtResource("26_10iin")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -78, -1, 12)
 
-[node name="Floor22" type="StaticBody3D" parent="Map/Big Room" unique_id=1502428956]
+[node name="Floor22" type="StaticBody3D" parent="Map/Big Room" unique_id=1502428956 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -72, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Big Room/Floor22" unique_id=654013843 instance=ExtResource("7_4ivpw")]
@@ -3113,7 +3116,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -78,
 [node name="wall_shelves7" parent="Map" unique_id=440528803 instance=ExtResource("32_ef7fj")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -78, -1, -40)
 
-[node name="Floor" type="StaticBody3D" parent="Map" unique_id=1193822153]
+[node name="Floor" type="StaticBody3D" parent="Map" unique_id=1193822153 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16)
 
 [node name="floor_tile_large4" parent="Map/Floor" unique_id=566434235 instance=ExtResource("7_4ivpw")]
@@ -3132,7 +3135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor2" type="StaticBody3D" parent="Map" unique_id=2037219174]
+[node name="Floor2" type="StaticBody3D" parent="Map" unique_id=2037219174 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 24)
 
 [node name="floor_tile_large4" parent="Map/Floor2" unique_id=1193090796 instance=ExtResource("7_4ivpw")]
@@ -3151,7 +3154,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor3" type="StaticBody3D" parent="Map" unique_id=1535786868]
+[node name="Floor3" type="StaticBody3D" parent="Map" unique_id=1535786868 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor3" unique_id=1566263606 instance=ExtResource("7_4ivpw")]
@@ -3170,46 +3173,46 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor5" parent="Map" unique_id=297535876 instance=ExtResource("24_ig2vp")]
+[node name="Floor5" parent="Map" unique_id=297535876 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 8, 0, -64)
 
-[node name="Floor16" parent="Map" unique_id=599894386 instance=ExtResource("24_ig2vp")]
+[node name="Floor16" parent="Map" unique_id=599894386 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -64)
 
-[node name="Floor22" parent="Map" unique_id=472665286 instance=ExtResource("24_ig2vp")]
+[node name="Floor22" parent="Map" unique_id=472665286 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -56)
 
-[node name="Floor43" parent="Map" unique_id=742654522 instance=ExtResource("24_ig2vp")]
+[node name="Floor43" parent="Map" unique_id=742654522 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -48)
 
-[node name="Floor44" parent="Map" unique_id=1066553382 instance=ExtResource("24_ig2vp")]
+[node name="Floor44" parent="Map" unique_id=1066553382 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -40)
 
-[node name="Floor45" parent="Map" unique_id=412875222 instance=ExtResource("24_ig2vp")]
+[node name="Floor45" parent="Map" unique_id=412875222 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -32)
 
-[node name="Floor46" parent="Map" unique_id=1693326790 instance=ExtResource("24_ig2vp")]
+[node name="Floor46" parent="Map" unique_id=1693326790 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -28)
 
-[node name="Floor47" parent="Map" unique_id=747667841 instance=ExtResource("24_ig2vp")]
+[node name="Floor47" parent="Map" unique_id=747667841 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, -24)
 
-[node name="Floor48" parent="Map" unique_id=225356048 instance=ExtResource("24_ig2vp")]
+[node name="Floor48" parent="Map" unique_id=225356048 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, -34)
 
-[node name="Floor49" parent="Map" unique_id=631857688 instance=ExtResource("24_ig2vp")]
+[node name="Floor49" parent="Map" unique_id=631857688 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -34)
 
-[node name="Floor50" parent="Map" unique_id=1233870123 instance=ExtResource("24_ig2vp")]
+[node name="Floor50" parent="Map" unique_id=1233870123 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34, 0, -34)
 
-[node name="Floor51" parent="Map" unique_id=296571334 instance=ExtResource("24_ig2vp")]
+[node name="Floor51" parent="Map" unique_id=296571334 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 0, -34)
 
 [node name="L room2" type="StaticBody3D" parent="Map" unique_id=1247007064]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 2)
 
-[node name="Floor10" type="StaticBody3D" parent="Map/L room2" unique_id=2018650310]
+[node name="Floor10" type="StaticBody3D" parent="Map/L room2" unique_id=2018650310 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor10" unique_id=1104004431 instance=ExtResource("7_4ivpw")]
@@ -3228,7 +3231,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor9" type="StaticBody3D" parent="Map/L room2" unique_id=1474208834]
+[node name="Floor9" type="StaticBody3D" parent="Map/L room2" unique_id=1474208834 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor9" unique_id=1224022949 instance=ExtResource("7_4ivpw")]
@@ -3247,7 +3250,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor8" type="StaticBody3D" parent="Map/L room2" unique_id=217339074]
+[node name="Floor8" type="StaticBody3D" parent="Map/L room2" unique_id=217339074 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor8" unique_id=1874735824 instance=ExtResource("7_4ivpw")]
@@ -3266,7 +3269,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor7" type="StaticBody3D" parent="Map/L room2" unique_id=555577683]
+[node name="Floor7" type="StaticBody3D" parent="Map/L room2" unique_id=555577683 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor7" unique_id=1607014020 instance=ExtResource("7_4ivpw")]
@@ -3285,7 +3288,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor6" type="StaticBody3D" parent="Map/L room2" unique_id=224611751]
+[node name="Floor6" type="StaticBody3D" parent="Map/L room2" unique_id=224611751 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor6" unique_id=465607722 instance=ExtResource("7_4ivpw")]
@@ -3304,7 +3307,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor5" type="StaticBody3D" parent="Map/L room2" unique_id=124128609]
+[node name="Floor5" type="StaticBody3D" parent="Map/L room2" unique_id=124128609 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor5" unique_id=1590344329 instance=ExtResource("7_4ivpw")]
@@ -3323,7 +3326,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/L room2" unique_id=1350561093]
+[node name="Floor4" type="StaticBody3D" parent="Map/L room2" unique_id=1350561093 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room2/Floor4" unique_id=994215584 instance=ExtResource("7_4ivpw")]
@@ -3460,7 +3463,7 @@ shape = SubResource("BoxShape3D_dfnfx")
 [node name="Wall cracked12" parent="Map" unique_id=1580751993 instance=ExtResource("30_c0uku")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1, -24)
 
-[node name="Floor52" parent="Map" unique_id=16250126 instance=ExtResource("24_ig2vp")]
+[node name="Floor52" parent="Map" unique_id=16250126 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, 0, -32)
 
 [node name="wall_corner11" parent="Map" unique_id=592314064 instance=ExtResource("26_10iin")]
@@ -3544,73 +3547,73 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4, 
 [node name="Wall cracked18" parent="Map" unique_id=1757061772 instance=ExtResource("30_c0uku")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, -1, -40)
 
-[node name="Floor53" parent="Map" unique_id=1370671010 instance=ExtResource("24_ig2vp")]
+[node name="Floor53" parent="Map" unique_id=1370671010 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 35, 0, 0)
 
-[node name="Floor54" parent="Map" unique_id=1855244024 instance=ExtResource("24_ig2vp")]
+[node name="Floor54" parent="Map" unique_id=1855244024 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43, 0, 0)
 
-[node name="Floor55" parent="Map" unique_id=356660082 instance=ExtResource("24_ig2vp")]
+[node name="Floor55" parent="Map" unique_id=356660082 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, 0)
 
-[node name="Floor56" parent="Map" unique_id=1495340417 instance=ExtResource("24_ig2vp")]
+[node name="Floor56" parent="Map" unique_id=1495340417 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -8)
 
-[node name="Floor57" parent="Map" unique_id=971034679 instance=ExtResource("24_ig2vp")]
+[node name="Floor57" parent="Map" unique_id=971034679 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -16)
 
-[node name="Floor58" parent="Map" unique_id=1503696014 instance=ExtResource("24_ig2vp")]
+[node name="Floor58" parent="Map" unique_id=1503696014 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -24)
 
-[node name="Floor59" parent="Map" unique_id=1955019642 instance=ExtResource("24_ig2vp")]
+[node name="Floor59" parent="Map" unique_id=1955019642 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -28)
 
-[node name="Floor60" parent="Map" unique_id=1130942348 instance=ExtResource("24_ig2vp")]
+[node name="Floor60" parent="Map" unique_id=1130942348 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -34)
 
-[node name="Floor61" parent="Map" unique_id=1224715063 instance=ExtResource("24_ig2vp")]
+[node name="Floor61" parent="Map" unique_id=1224715063 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44, 0, -34)
 
-[node name="Floor62" parent="Map" unique_id=1977429941 instance=ExtResource("24_ig2vp")]
+[node name="Floor62" parent="Map" unique_id=1977429941 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 59, 0, 0)
 
-[node name="Floor63" parent="Map" unique_id=167849930 instance=ExtResource("24_ig2vp")]
+[node name="Floor63" parent="Map" unique_id=167849930 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 67, 0, 0)
 
-[node name="Floor64" parent="Map" unique_id=1478389652 instance=ExtResource("24_ig2vp")]
+[node name="Floor64" parent="Map" unique_id=1478389652 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 75, 0, 0)
 
-[node name="Floor65" parent="Map" unique_id=192124478 instance=ExtResource("24_ig2vp")]
+[node name="Floor65" parent="Map" unique_id=192124478 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 75, 0, 8)
 
-[node name="Floor66" parent="Map" unique_id=634389129 instance=ExtResource("24_ig2vp")]
+[node name="Floor66" parent="Map" unique_id=634389129 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 75, 0, 16)
 
-[node name="Floor67" parent="Map" unique_id=1530081102 instance=ExtResource("24_ig2vp")]
+[node name="Floor67" parent="Map" unique_id=1530081102 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 75, 0, 24)
 
-[node name="Floor68" parent="Map" unique_id=675487349 instance=ExtResource("24_ig2vp")]
+[node name="Floor68" parent="Map" unique_id=675487349 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 75, 0, 32)
 
-[node name="Floor69" parent="Map" unique_id=577946980 instance=ExtResource("24_ig2vp")]
+[node name="Floor69" parent="Map" unique_id=577946980 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 67, 0, 32)
 
-[node name="Floor70" parent="Map" unique_id=726526425 instance=ExtResource("24_ig2vp")]
+[node name="Floor70" parent="Map" unique_id=726526425 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 59, 0, 32)
 
-[node name="Floor71" parent="Map" unique_id=72590381 instance=ExtResource("24_ig2vp")]
+[node name="Floor71" parent="Map" unique_id=72590381 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, 32)
 
-[node name="Floor72" parent="Map" unique_id=397378763 instance=ExtResource("24_ig2vp")]
+[node name="Floor72" parent="Map" unique_id=397378763 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, 24)
 
-[node name="Floor73" parent="Map" unique_id=1168284233 instance=ExtResource("24_ig2vp")]
+[node name="Floor73" parent="Map" unique_id=1168284233 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, 16)
 
-[node name="Floor74" parent="Map" unique_id=231014644 instance=ExtResource("24_ig2vp")]
+[node name="Floor74" parent="Map" unique_id=231014644 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43, 0, 16)
 
-[node name="Floor75" type="StaticBody3D" parent="Map" unique_id=636756224]
+[node name="Floor75" type="StaticBody3D" parent="Map" unique_id=636756224 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor75" unique_id=511753372 instance=ExtResource("7_4ivpw")]
@@ -3629,7 +3632,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor76" type="StaticBody3D" parent="Map" unique_id=915260132]
+[node name="Floor76" type="StaticBody3D" parent="Map" unique_id=915260132 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor76" unique_id=943843454 instance=ExtResource("7_4ivpw")]
@@ -3648,7 +3651,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor77" type="StaticBody3D" parent="Map" unique_id=729474267]
+[node name="Floor77" type="StaticBody3D" parent="Map" unique_id=729474267 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 40)
 
 [node name="floor_tile_large4" parent="Map/Floor77" unique_id=1618114311 instance=ExtResource("7_4ivpw")]
@@ -3667,7 +3670,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor78" type="StaticBody3D" parent="Map" unique_id=990020258]
+[node name="Floor78" type="StaticBody3D" parent="Map" unique_id=990020258 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 48)
 
 [node name="floor_tile_large4" parent="Map/Floor78" unique_id=143393692 instance=ExtResource("7_4ivpw")]
@@ -3686,7 +3689,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor79" type="StaticBody3D" parent="Map" unique_id=46186728]
+[node name="Floor79" type="StaticBody3D" parent="Map" unique_id=46186728 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 56)
 
 [node name="floor_tile_large4" parent="Map/Floor79" unique_id=247854018 instance=ExtResource("7_4ivpw")]
@@ -3705,7 +3708,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor80" type="StaticBody3D" parent="Map" unique_id=234177200]
+[node name="Floor80" type="StaticBody3D" parent="Map" unique_id=234177200 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24, 0, 56)
 
 [node name="floor_tile_large4" parent="Map/Floor80" unique_id=1040367264 instance=ExtResource("7_4ivpw")]
@@ -3724,7 +3727,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor81" type="StaticBody3D" parent="Map" unique_id=2063997524]
+[node name="Floor81" type="StaticBody3D" parent="Map" unique_id=2063997524 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32, 0, 56)
 
 [node name="floor_tile_large4" parent="Map/Floor81" unique_id=516796666 instance=ExtResource("7_4ivpw")]
@@ -3743,7 +3746,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor82" type="StaticBody3D" parent="Map" unique_id=1572608897]
+[node name="Floor82" type="StaticBody3D" parent="Map" unique_id=1572608897 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 0, 56)
 
 [node name="floor_tile_large4" parent="Map/Floor82" unique_id=1583185016 instance=ExtResource("7_4ivpw")]
@@ -3762,7 +3765,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor83" type="StaticBody3D" parent="Map" unique_id=2076633172]
+[node name="Floor83" type="StaticBody3D" parent="Map" unique_id=2076633172 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 56)
 
 [node name="floor_tile_large4" parent="Map/Floor83" unique_id=1515009899 instance=ExtResource("7_4ivpw")]
@@ -3781,7 +3784,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor84" type="StaticBody3D" parent="Map" unique_id=781635473]
+[node name="Floor84" type="StaticBody3D" parent="Map" unique_id=781635473 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 48)
 
 [node name="floor_tile_large4" parent="Map/Floor84" unique_id=23053521 instance=ExtResource("7_4ivpw")]
@@ -3800,7 +3803,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor85" type="StaticBody3D" parent="Map" unique_id=731206863]
+[node name="Floor85" type="StaticBody3D" parent="Map" unique_id=731206863 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 40)
 
 [node name="floor_tile_large4" parent="Map/Floor85" unique_id=690599835 instance=ExtResource("7_4ivpw")]
@@ -3819,7 +3822,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor86" type="StaticBody3D" parent="Map" unique_id=542411722]
+[node name="Floor86" type="StaticBody3D" parent="Map" unique_id=542411722 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor86" unique_id=847721013 instance=ExtResource("7_4ivpw")]
@@ -3838,7 +3841,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor87" type="StaticBody3D" parent="Map" unique_id=244463242]
+[node name="Floor87" type="StaticBody3D" parent="Map" unique_id=244463242 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 48, 0, 30)
 
 [node name="floor_tile_large4" parent="Map/Floor87" unique_id=1662357730 instance=ExtResource("7_4ivpw")]
@@ -3857,7 +3860,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor88" type="StaticBody3D" parent="Map" unique_id=1757577666]
+[node name="Floor88" type="StaticBody3D" parent="Map" unique_id=1757577666 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor88" unique_id=1457545036 instance=ExtResource("7_4ivpw")]
@@ -3876,7 +3879,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor89" type="StaticBody3D" parent="Map" unique_id=1341861378]
+[node name="Floor89" type="StaticBody3D" parent="Map" unique_id=1341861378 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 32)
 
 [node name="floor_tile_large4" parent="Map/Floor89" unique_id=772999665 instance=ExtResource("7_4ivpw")]
@@ -3895,7 +3898,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor90" type="StaticBody3D" parent="Map" unique_id=1744667259]
+[node name="Floor90" type="StaticBody3D" parent="Map" unique_id=1744667259 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 40)
 
 [node name="floor_tile_large4" parent="Map/Floor90" unique_id=2099178599 instance=ExtResource("7_4ivpw")]
@@ -3914,7 +3917,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor91" type="StaticBody3D" parent="Map" unique_id=1142796402]
+[node name="Floor91" type="StaticBody3D" parent="Map" unique_id=1142796402 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 0, 48)
 
 [node name="floor_tile_large4" parent="Map/Floor91" unique_id=1191494398 instance=ExtResource("7_4ivpw")]
@@ -3933,7 +3936,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor92" type="StaticBody3D" parent="Map" unique_id=72470562]
+[node name="Floor92" type="StaticBody3D" parent="Map" unique_id=72470562 groups=["navigation"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24, 0, 48)
 
 [node name="floor_tile_large4" parent="Map/Floor92" unique_id=1489188798 instance=ExtResource("7_4ivpw")]
@@ -3952,31 +3955,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor93" parent="Map" unique_id=175720126 instance=ExtResource("24_ig2vp")]
+[node name="Floor93" parent="Map" unique_id=175720126 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -42)
 
-[node name="Floor94" parent="Map" unique_id=1689533202 instance=ExtResource("24_ig2vp")]
+[node name="Floor94" parent="Map" unique_id=1689533202 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -50)
 
-[node name="Floor95" parent="Map" unique_id=783259268 instance=ExtResource("24_ig2vp")]
+[node name="Floor95" parent="Map" unique_id=783259268 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 59, 0, -50)
 
-[node name="Floor96" parent="Map" unique_id=714670498 instance=ExtResource("24_ig2vp")]
+[node name="Floor96" parent="Map" unique_id=714670498 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 67, 0, -50)
 
-[node name="Floor97" parent="Map" unique_id=433915387 instance=ExtResource("24_ig2vp")]
+[node name="Floor97" parent="Map" unique_id=433915387 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 67, 0, -58)
 
-[node name="Floor98" parent="Map" unique_id=1713265704 instance=ExtResource("24_ig2vp")]
+[node name="Floor98" parent="Map" unique_id=1713265704 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 67, 0, -66)
 
-[node name="Floor99" parent="Map" unique_id=300799358 instance=ExtResource("24_ig2vp")]
+[node name="Floor99" parent="Map" unique_id=300799358 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 59, 0, -66)
 
-[node name="Floor100" parent="Map" unique_id=1182035857 instance=ExtResource("24_ig2vp")]
+[node name="Floor100" parent="Map" unique_id=1182035857 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, -66)
 
-[node name="Floor101" parent="Map" unique_id=690494634 instance=ExtResource("24_ig2vp")]
+[node name="Floor101" parent="Map" unique_id=690494634 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 43, 0, -66)
 
 [node name="Wall27" parent="Map" unique_id=311112445 instance=ExtResource("28_h4eyc")]
@@ -4098,43 +4101,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, -1, 70)
 [node name="wall_corner30" parent="Map" unique_id=795824781 instance=ExtResource("26_10iin")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -12, -1, 70)
 
-[node name="Floor102" parent="Map" unique_id=1250639921 instance=ExtResource("24_ig2vp")]
+[node name="Floor102" parent="Map" unique_id=1250639921 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 49)
 
-[node name="Floor103" parent="Map" unique_id=54235128 instance=ExtResource("24_ig2vp")]
+[node name="Floor103" parent="Map" unique_id=54235128 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 49)
 
-[node name="Floor104" parent="Map" unique_id=1710936202 instance=ExtResource("24_ig2vp")]
+[node name="Floor104" parent="Map" unique_id=1710936202 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 49)
 
-[node name="Floor105" parent="Map" unique_id=2033350102 instance=ExtResource("24_ig2vp")]
+[node name="Floor105" parent="Map" unique_id=2033350102 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 57)
 
-[node name="Floor106" parent="Map" unique_id=1398899305 instance=ExtResource("24_ig2vp")]
+[node name="Floor106" parent="Map" unique_id=1398899305 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 57)
 
-[node name="Floor107" parent="Map" unique_id=1103699449 instance=ExtResource("24_ig2vp")]
+[node name="Floor107" parent="Map" unique_id=1103699449 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 57)
 
-[node name="Floor108" parent="Map" unique_id=1681456197 instance=ExtResource("24_ig2vp")]
+[node name="Floor108" parent="Map" unique_id=1681456197 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 66)
 
-[node name="Floor109" parent="Map" unique_id=343781350 instance=ExtResource("24_ig2vp")]
+[node name="Floor109" parent="Map" unique_id=343781350 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 66)
 
-[node name="Floor110" parent="Map" unique_id=242692662 instance=ExtResource("24_ig2vp")]
+[node name="Floor110" parent="Map" unique_id=242692662 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 66)
 
-[node name="Floor111" parent="Map" unique_id=605116374 instance=ExtResource("24_ig2vp")]
+[node name="Floor111" parent="Map" unique_id=605116374 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 58.9954)
 
-[node name="Floor112" parent="Map" unique_id=1039622344 instance=ExtResource("24_ig2vp")]
+[node name="Floor112" parent="Map" unique_id=1039622344 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 0, 58.9954)
 
-[node name="Floor113" parent="Map" unique_id=602388724 instance=ExtResource("24_ig2vp")]
+[node name="Floor113" parent="Map" unique_id=602388724 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, 58.9954)
 
-[node name="Floor114" parent="Map" unique_id=1310743786 instance=ExtResource("24_ig2vp")]
+[node name="Floor114" parent="Map" unique_id=1310743786 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, 58.9954)
 
 [node name="wall_corner31" parent="Map" unique_id=269621347 instance=ExtResource("26_10iin")]
@@ -4254,49 +4257,49 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 20, 
 [node name="wall_half18" parent="Map" unique_id=1373895576 instance=ExtResource("33_1q32g")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, -1, -38)
 
-[node name="Floor115" parent="Map" unique_id=1262265793 instance=ExtResource("24_ig2vp")]
+[node name="Floor115" parent="Map" unique_id=1262265793 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, -42)
 
-[node name="Floor116" parent="Map" unique_id=2063093818 instance=ExtResource("24_ig2vp")]
+[node name="Floor116" parent="Map" unique_id=2063093818 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, -50)
 
-[node name="Floor117" parent="Map" unique_id=1800714262 instance=ExtResource("24_ig2vp")]
+[node name="Floor117" parent="Map" unique_id=1800714262 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 18, 0, -58)
 
-[node name="Floor118" parent="Map" unique_id=802750667 instance=ExtResource("24_ig2vp")]
+[node name="Floor118" parent="Map" unique_id=802750667 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -58)
 
-[node name="Floor119" parent="Map" unique_id=1313241733 instance=ExtResource("24_ig2vp")]
+[node name="Floor119" parent="Map" unique_id=1313241733 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -50)
 
-[node name="Floor120" parent="Map" unique_id=460022891 instance=ExtResource("24_ig2vp")]
+[node name="Floor120" parent="Map" unique_id=460022891 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 26, 0, -42)
 
-[node name="Floor121" parent="Map" unique_id=600364944 instance=ExtResource("24_ig2vp")]
+[node name="Floor121" parent="Map" unique_id=600364944 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34, 0, -42)
 
-[node name="Floor122" parent="Map" unique_id=676648688 instance=ExtResource("24_ig2vp")]
+[node name="Floor122" parent="Map" unique_id=676648688 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 0, -42)
 
-[node name="Floor123" parent="Map" unique_id=839987872 instance=ExtResource("24_ig2vp")]
+[node name="Floor123" parent="Map" unique_id=839987872 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34, 0, -50)
 
-[node name="Floor124" parent="Map" unique_id=536601104 instance=ExtResource("24_ig2vp")]
+[node name="Floor124" parent="Map" unique_id=536601104 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 34, 0, -58)
 
-[node name="Floor125" parent="Map" unique_id=182372127 instance=ExtResource("24_ig2vp")]
+[node name="Floor125" parent="Map" unique_id=182372127 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 0, -58)
 
-[node name="Floor126" parent="Map" unique_id=213824053 instance=ExtResource("24_ig2vp")]
+[node name="Floor126" parent="Map" unique_id=213824053 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 42, 0, -50)
 
-[node name="Floor127" parent="Map" unique_id=805554680 instance=ExtResource("24_ig2vp")]
+[node name="Floor127" parent="Map" unique_id=805554680 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44, 0, -42)
 
-[node name="Floor128" parent="Map" unique_id=1843405016 instance=ExtResource("24_ig2vp")]
+[node name="Floor128" parent="Map" unique_id=1843405016 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44, 0, -50)
 
-[node name="Floor129" parent="Map" unique_id=865284719 instance=ExtResource("24_ig2vp")]
+[node name="Floor129" parent="Map" unique_id=865284719 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 44, 0, -58)
 
 [node name="wall_corner38" parent="Map" unique_id=1840767670 instance=ExtResource("26_10iin")]
@@ -4437,7 +4440,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, -1, -30)
 [node name="L room3" type="StaticBody3D" parent="Map" unique_id=189244230]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 51, 0, 50)
 
-[node name="Floor10" type="StaticBody3D" parent="Map/L room3" unique_id=647113053]
+[node name="Floor10" type="StaticBody3D" parent="Map/L room3" unique_id=647113053 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -10, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor10" unique_id=1899937433 instance=ExtResource("7_4ivpw")]
@@ -4456,7 +4459,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor9" type="StaticBody3D" parent="Map/L room3" unique_id=1947706361]
+[node name="Floor9" type="StaticBody3D" parent="Map/L room3" unique_id=1947706361 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -14, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor9" unique_id=446883692 instance=ExtResource("7_4ivpw")]
@@ -4475,7 +4478,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor8" type="StaticBody3D" parent="Map/L room3" unique_id=758074878]
+[node name="Floor8" type="StaticBody3D" parent="Map/L room3" unique_id=758074878 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -22, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor8" unique_id=407815446 instance=ExtResource("7_4ivpw")]
@@ -4494,7 +4497,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor7" type="StaticBody3D" parent="Map/L room3" unique_id=116940284]
+[node name="Floor7" type="StaticBody3D" parent="Map/L room3" unique_id=116940284 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 28)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor7" unique_id=1175623220 instance=ExtResource("7_4ivpw")]
@@ -4513,7 +4516,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor6" type="StaticBody3D" parent="Map/L room3" unique_id=825617793]
+[node name="Floor6" type="StaticBody3D" parent="Map/L room3" unique_id=825617793 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -18, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor6" unique_id=1845875610 instance=ExtResource("7_4ivpw")]
@@ -4532,7 +4535,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor5" type="StaticBody3D" parent="Map/L room3" unique_id=1456972363]
+[node name="Floor5" type="StaticBody3D" parent="Map/L room3" unique_id=1456972363 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -30, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor5" unique_id=1929143922 instance=ExtResource("7_4ivpw")]
@@ -4551,7 +4554,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, 7.903123)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0025787354, -1, 9.924957)
 shape = SubResource("BoxShape3D_78u67")
 
-[node name="Floor4" type="StaticBody3D" parent="Map/L room3" unique_id=501970112]
+[node name="Floor4" type="StaticBody3D" parent="Map/L room3" unique_id=501970112 groups=["navigation"]]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -24, 0, 20)
 
 [node name="floor_tile_large4" parent="Map/L room3/Floor4" unique_id=489221930 instance=ExtResource("7_4ivpw")]
@@ -4685,16 +4688,16 @@ shape = SubResource("BoxShape3D_3l1ww")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.25596, 0.7357788, 16.014404)
 shape = SubResource("BoxShape3D_dfnfx")
 
-[node name="Floor130" parent="Map" unique_id=2137742631 instance=ExtResource("24_ig2vp")]
+[node name="Floor130" parent="Map" unique_id=2137742631 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38, 0, -8)
 
-[node name="Floor131" parent="Map" unique_id=1670135910 instance=ExtResource("24_ig2vp")]
+[node name="Floor131" parent="Map" unique_id=1670135910 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38, 0, -16)
 
-[node name="Floor132" parent="Map" unique_id=580008153 instance=ExtResource("24_ig2vp")]
+[node name="Floor132" parent="Map" unique_id=580008153 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 38, 0, -24)
 
-[node name="Floor133" parent="Map" unique_id=1449075497 instance=ExtResource("24_ig2vp")]
+[node name="Floor133" parent="Map" unique_id=1449075497 groups=["navigation"] instance=ExtResource("24_ig2vp")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 30, 0, -24)
 
 [node name="wall_corner49" parent="Map" unique_id=1530352029 instance=ExtResource("26_10iin")]
@@ -4921,3 +4924,23 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10, 
 
 [node name="wall_half43" parent="Map" unique_id=2034579608 instance=ExtResource("33_1q32g")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 4, -1, 22)
+
+[node name="Spawener" type="Node3D" parent="." unique_id=1954186463]
+script = ExtResource("37_ig2vp")
+
+[node name="Markers" type="Node3D" parent="Spawener" unique_id=2087446274]
+
+[node name="Marker3D" type="Marker3D" parent="Spawener/Markers" unique_id=62070664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -65.44626)
+
+[node name="Marker3D2" type="Marker3D" parent="Spawener/Markers" unique_id=716255097]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.040972, 0, -32.524994)
+
+[node name="Marker3D3" type="Marker3D" parent="Spawener/Markers" unique_id=1105584811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 60.21275)
+
+[node name="Marker3D4" type="Marker3D" parent="Spawener/Markers" unique_id=673679811]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.948742, 0.44420552, 28.947166)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=457793764]
+navigation_mesh = SubResource("NavigationMesh_ig2vp")
