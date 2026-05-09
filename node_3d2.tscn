@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bunp2ay2jbloj"]
 
 [ext_resource type="PackedScene" uid="uid://bl18nsv1qh53j" path="res://player.tscn" id="1_f3us2"]
+[ext_resource type="Script" uid="uid://d3d7wwb0w5stt" path="res://pausemenu.gd" id="1_l81bs"]
 [ext_resource type="PackedScene" uid="uid://c0xx08lq2po1o" path="res://ui.tscn" id="3_4ivpw"]
 [ext_resource type="PackedScene" uid="uid://onxjvqg6uc32" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_extralarge_grates_open.fbx" id="4_f3us2"]
 [ext_resource type="PackedScene" uid="uid://dmbhj6tow31c2" path="res://assets/KayKit_DungeonRemastered_1.1_FREE/Assets/fbx/floor_tile_small.fbx" id="5_l8ani"]
@@ -173,9 +174,63 @@ geometry_source_group_name = &"navigation"
 
 [node name="Node3D" type="Node3D" unique_id=1940789699]
 
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1429439696]
+process_mode = 3
+script = ExtResource("1_l81bs")
+
+[node name="PauseMenu" type="Control" parent="Menu" unique_id=750002404]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Menu/PauseMenu" unique_id=1040154841]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.14509805, 1, 1, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu/PauseMenu" unique_id=131215142]
+process_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -50.5
+offset_right = 27.0
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResumeButton" type="Button" parent="Menu/PauseMenu/VBoxContainer" unique_id=405617281]
+process_mode = 2
+layout_mode = 2
+text = "Wróć"
+
+[node name="MainMenuButton" type="Button" parent="Menu/PauseMenu/VBoxContainer" unique_id=1571036556]
+process_mode = 2
+layout_mode = 2
+text = "Menu"
+
+[node name="QuitButton" type="Button" parent="Menu/PauseMenu/VBoxContainer" unique_id=1707393929]
+process_mode = 2
+layout_mode = 2
+text = "Wyjdź"
+
 [node name="Player" parent="." unique_id=289750881 instance=ExtResource("1_f3us2")]
 
 [node name="UI" parent="." unique_id=178172470 instance=ExtResource("3_4ivpw")]
+layer = 0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1961322502]
 environment = SubResource("Environment_wc5p8")
@@ -4944,3 +4999,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.948742, 0.44420552, 28.94
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=457793764]
 navigation_mesh = SubResource("NavigationMesh_ig2vp")
+
+[connection signal="pressed" from="Menu/PauseMenu/VBoxContainer/ResumeButton" to="Menu" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/VBoxContainer/MainMenuButton" to="Menu" method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Menu/PauseMenu/VBoxContainer/QuitButton" to="Menu" method="_on_quit_button_pressed"]
